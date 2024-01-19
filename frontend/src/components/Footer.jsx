@@ -33,7 +33,7 @@ const Footer = () => {
           <div className='bg-blue-500 text-center py-2'>
             <p>© Cozy Quarters All Rights Reserved, 2024</p>
           </div>
-        </div>
+        </div>  
       </footer>
     </>
   )
