@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       <footer>
         <div className='max-w-screen-xl mx-auto'>
-          <div className=' flex justify-around border-b gap-8 md:flex-nowrap flex-wrap'>
+          <div className=' flex justify-around border-b gap-8 md:flex-nowrap flex-wrap pb-4'>
             <div className='p-4 md:w-1/3 w-full'>
               <div id="drawer-navigation-label" className=" text-3xl font-bold italic">
                 Cozy Quarters
