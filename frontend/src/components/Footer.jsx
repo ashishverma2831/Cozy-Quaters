@@ -3,34 +3,45 @@ import React from 'react'
 const Footer = () => {
   return (
     <>
-      <footer className='bg-red-500'>
-        <div className='max-w-screen-xl bg-red-700 mx-auto'>
-          <div className='bg-red-900 flex justify-around border-b'>
-            <div className='p-2 '>
+      <footer>
+        <div className='max-w-screen-xl mx-auto'>
+          <div className=' flex justify-around border-b gap-8 md:flex-nowrap flex-wrap'>
+            <div className='p-4 md:w-1/3 w-full'>
               <div id="drawer-navigation-label" className=" text-3xl font-bold italic">
                 Cozy Quarters
               </div>
-              <p className="text-sm">A project by the team at The University of Texas at
-              Austin, in collaboration with UT Austin students and faculty.
+              <p className="text-sm pt-4 px-2">CozyQuaters.com - Is an online mutual support network for people working in Paying Guest/Hostels & Hotels? It's based in India in Service Sector, and with long experience in PAN INDIA lodging market it helps People to find the PG/Hostel that perfectly matches their needs.
               </p>
+              <a className='hover:cursor-pointer px-2 text-blue-700'>Read more...</a>
             </div>
-            <div className='p-2 '>
-                <p>Helpful Links</p>
+            <div className='p-2 w-2/5 md:w-1/3'>
+                <p className='text-lg font-semibold pb-2 md:py-5'>Helpful Links</p>
+                <div>
+                  <ul className='flex gap-y-2 flex-wrap'>
+                    <li className='w-1/2 hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer hover:translate-x-1 hover:transition-all'>Login</a></li>
+                    <li className=' w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>About</a></li>
+                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Register</a></li>
+                    <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Subscription</a></li>
+                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Contact Us</a></li>
+                    <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Feedback</a></li>
+                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Privacy Policy</a></li>
+                  </ul>
+                </div>
             </div>
-            <div className='p-2 '>
-                <p className='text-lg font-normal py-5'>Contact Us</p>
+            <div className='p-2 w-2/5 md:w-1/3'>
+                <p className='text-lg font-semibold pb-2 md:py-5'>Contact Us</p>
                 <p>Building No-258, Yadav Colony,<br />
                   Rajeev Gandhi Marg, Ballabgarh,<br />
                   Faridabad (Haryana) 121004</p>
                 <p className='py-2'>E-mail: <a>ashishverma510207@gmail.com</a></p>
-                <div>
-                  <a className='text-3xl'><i class="fa-brands fa-facebook"></i></a>
-                  <a><i class="fa-brands fa-youtube"></i></a>
-                  <a><i class="fa-brands fa-instagram"></i></a>
+                <div className='flex gap-4'>
+                  <a className='text-3xl text-blue-700'><i class="fa-brands fa-facebook"></i></a>
+                  <a className='text-3xl text-red-700'><i class="fa-brands fa-youtube"></i></a>
+                  <a className='text-3xl text-pink-700'><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
           </div>
-          <div className='bg-blue-500 text-center py-2'>
+          <div className='text-center py-2'>
             <p>© Cozy Quarters All Rights Reserved, 2024</p>
           </div>
         </div>  
