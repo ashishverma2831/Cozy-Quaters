@@ -37,10 +37,10 @@ const Slider = () => {
         }}
         slidesPerView={3}
         spaceBetween={30}
-        // autoplay={{
-        //     delay: 2500,
-        //     disableOnInteraction: false,
-        //   }}
+        autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
         mousewheel={true}
         keyboard={true}
         modules={[Navigation,Autoplay, Pagination, Mousewheel, Keyboard]}

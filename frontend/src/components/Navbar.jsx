@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -12,19 +13,19 @@ const Navbar = () => {
       </div>
     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse justify-end md:w-auto w-full ">
       <div className='flex'>
-      <button
-        type="button"
+      <NavLink 
+        to='/login'
         className="text-gray-900 focus:outline-none  font-medium  text-sm px-4 py-2 text-center border-gray-400"
       >
         Login
-      </button>
+      </NavLink>
       <div className=' w-[1px] h-6 self-center bg-gray-600'></div>
-      <button
-        type="button"
+      <NavLink
+        to='/register'
         className="text-gray-900 focus:outline-none font-medium text-sm px-4 py-2 text-center border-gray-400"
       >
         Register
-      </button>
+      </NavLink>
       </div>
       <button
         type="button"
@@ -56,13 +57,14 @@ const Navbar = () => {
     >
       <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
         <li>
-          <a
+          <NavLink 
+            to='/'
             href="#"
             className="block py-2 px-3 text-gray-900 rounded md:bg-transparent hover:bg-gray-100 "
             aria-current="page"
           >
             Home
-          </a>
+          </NavLink>
         </li>
         <li>
         <div>
@@ -102,12 +104,12 @@ const Navbar = () => {
       {cities.map((city)=>{
         return(
           <li>
-        <a
+        <Link
           href="#"
           className="block px-4 py-2 hover:bg-gray-100 "
         >
           {city}
-        </a>
+        </Link>
       </li>
         )
       })}
@@ -117,28 +119,31 @@ const Navbar = () => {
 
         </li>
         <li>
-          <a
+          <NavLink 
+            to='/about'
             href="#"
             className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100  "
           >
             About
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
+          <NavLink
+            to='/feedback'
             href="#"
             className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 "
           >
             Feedback
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
+          <NavLink 
+            to='contact'
             href="#"
             className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 "
           >
             Contact Us
-          </a>
+          </NavLink>
         </li>
       </ul>
     </div>
@@ -179,60 +184,66 @@ const Navbar = () => {
     <div className="py-4 overflow-y-auto">
       <ul className="space-y-2 font-medium">
         <li>
-          <a
+          <NavLink
+            to='/'
             href="#"
             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <span className="ms-3">Home</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
+          <Link
             href="#"
             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <span className="ms-3">Cities</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <NavLink
+            to='/about'
             href="#"
             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <span className="ms-3">About</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
+          <NavLink
+            to='/feedback'
             href="#"
             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <span className="ms-3">Feedback</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
+          <NavLink
+            to='/contact'
             href="#"
             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <span className="ms-3">Contact Us</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
+          <NavLink
+            to='/login'
             href="#"
             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <span className="ms-3">Login</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
+          <NavLink
+            to='/register'
             href="#"
             className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
           >
             <span className="ms-3">Register</span>
-          </a>
+          </NavLink>
         </li>
       </ul>
     </div>
