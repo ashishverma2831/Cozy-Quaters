@@ -41,7 +41,7 @@ const Footer = () => {
                 </div>
             </div>
           </div>
-          <div className='text-center py-2'>
+          <div className='text-center py-4'>
             <p>© Cozy Quarters All Rights Reserved, 2024</p>
           </div>
         </div>  

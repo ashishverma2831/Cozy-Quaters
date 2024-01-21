@@ -1,18 +1,33 @@
 import React from 'react'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import RoomCard from './components/RoomCard'
-import FeatureCard from './components/FeatureCard'
-import Slider from './components/Slider'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import { SnackbarProvider } from 'notistack'
+import Home from './pages/Home'
+import About from './pages/About'
+import Cities from './pages/Cities'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Contact from './pages/Contact'
+import Feedback from './pages/Feedback'
+import ErrorPage from './pages/ErrorPage'
+
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <RoomCard />
-      <FeatureCard />
-      <Slider />
-      <Footer />
+      <SnackbarProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/cities" element={<Cities />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/feedback" element={<Feedback />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </BrowserRouter>
+      </SnackbarProvider>
     </>
   )
 }
