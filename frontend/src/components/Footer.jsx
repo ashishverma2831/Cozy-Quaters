@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='max-w-screen-xl mx-auto'>
           <div className=' flex justify-around border-b gap-8 md:flex-nowrap flex-wrap pb-4'>
             <div className='p-4 md:w-1/3 w-full'>
-              <div id="drawer-navigation-label" className=" text-3xl font-bold italic">
+              <div id="drawer-navigation-label" className=" text-3xl font-extrabold italic">
                 Cozy Quarters
               </div>
               <p className="text-sm pt-4 px-2">CozyQuaters.com - Is an online mutual support network for people working in Paying Guest/Hostels & Hotels? It's based in India in Service Sector, and with long experience in PAN INDIA lodging market it helps People to find the PG/Hostel that perfectly matches their needs.

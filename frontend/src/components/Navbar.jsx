@@ -8,7 +8,7 @@ const Navbar = () => {
     <>
         <nav className="border-gray-200">
      <div className="max-w-screen-xl  flex items-center justify-between mx-auto p-4">
-      <div className=" text-3xl font-bold italic whitespace-nowrap ">
+      <div className=" text-3xl font-extrabold italic whitespace-nowrap ">
         Cozy Quarters
       </div>
     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse justify-end md:w-auto w-full ">
@@ -157,7 +157,7 @@ const Navbar = () => {
     tabIndex={-1}
     aria-labelledby="drawer-navigation-label"
   >
-      <div id="drawer-navigation-label" className=" text-xl font-bold italic whitespace-nowrap ">
+      <div id="drawer-navigation-label" className=" text-xl font-extrabold italic whitespace-nowrap ">
         Cozy Quarters
       </div>
     <button
