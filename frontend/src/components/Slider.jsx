@@ -21,9 +21,9 @@ const Slider = () => {
             nextEl:'.swiper-button-next',
             prevEl:'.swiper-button-prev'
         }}
-        pagination={{
-            clickable:true
-        }}
+        // pagination={{
+        //     clickable:true
+        // }}
         breakpoints={{
             1024:{
                 slidesPerView: 3
@@ -43,9 +43,9 @@ const Slider = () => {
           }}
         mousewheel={true}
         keyboard={true}
-        modules={[Navigation,Autoplay, Pagination, Mousewheel, Keyboard]}
+        modules={[Navigation,Autoplay,Pagination, Mousewheel, Keyboard]}
         max
-        className="max-w-screen-xl mx-auto bg-red-600 flex justify-center"
+        className="max-w-screen-xl mx-auto flex justify-center"
       >
         <SwiperSlide><RoomCard /></SwiperSlide>
         <SwiperSlide><RoomCard /></SwiperSlide>
@@ -58,8 +58,8 @@ const Slider = () => {
         <SwiperSlide><RoomCard /></SwiperSlide>
         <SwiperSlide><RoomCard /></SwiperSlide>
         <SwiperSlide><RoomCard /></SwiperSlide>
-        <div className='swiper-button-next h-20 w-20 rounded-full bg-gray-400 text-white shadow-lg'></div>
-        <div className='swiper-button-prev h-20 w-20 rounded-full bg-gray-400 text-white shadow-lg'></div>
+        <div className='swiper-button-next rounded-full bg-gray-200 h-20 w-20 text-gray-400  shadow-lg'></div>
+        <div className='swiper-button-prev  rounded-full bg-gray-200 h-20 w-20 text-gray-400 shadow-lg'></div>
       </Swiper>
     </>
   )
