@@ -16,13 +16,13 @@ const registerSchema = Yup.object().shape({
 const Register = () => {
 
   const registerForm = useFormik({
-    initialvalues:{
+    initialValues:{
       name: '',
       email: '',
       password: '',
       confirm: '',
     },
-    onsubmit:(values)=>{
+    onSubmit:(values)=>{
       console.log(values);
     },
     validationSchema:registerSchema
@@ -38,7 +38,7 @@ const Register = () => {
               <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Register here
               </h1>
-              <form className="space-y-4 md:space-y-6">
+              <form className="space-y-4 md:space-y-6" onSubmit={registerForm.handleSubmit}>
                 <div>
                   <label
                     htmlFor="name"
