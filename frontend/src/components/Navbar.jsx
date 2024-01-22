@@ -138,7 +138,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink 
-            to='contact'
+            to='/contact'
             href="#"
             className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 "
           >
