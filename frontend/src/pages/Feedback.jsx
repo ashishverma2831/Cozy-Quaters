@@ -1,8 +1,31 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { useFormik } from 'formik'
+import * as Yup from 'yup';
+
+const feedbackSchema = Yup.object().shape({
+    name: Yup.string().required('Name is required').min(4,'Name is too short'),
+    email: Yup.string().email('Invalid email').required('Required'),
+    rating: Yup.string().required('Ratings is required'),
+    message:Yup.string().required('Message is required')
+})
 
 const Feedback = () => {
+
+  const feedbackForm = useFormik({
+    initialValues:{
+      name: '',
+      email:'',
+      rating:'',
+      message:''
+    },
+    onSubmit:(values)=>{
+      console.log(values);
+    },
+    validationSchema:feedbackSchema
+  })
+
   return (
     <>
       <Navbar />
@@ -24,7 +47,9 @@ const Feedback = () => {
           id="name"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
           placeholder="your name"
-          required=""
+          required="true"
+          onChange={feedbackForm.handleChange}
+          value={feedbackForm.values.name}
         />
       </div>
       <div>
@@ -39,27 +64,31 @@ const Feedback = () => {
           id="email"
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
           placeholder="name@flowbite.com"
-          required=""
+          required="true"
+          onChange={feedbackForm.handleChange}
+          value={feedbackForm.values.email}
         />
       </div>
       <div>
         <label
-          htmlFor="ratings"
+          htmlFor="rating"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
         >
           Ratings
         </label>
         <select
-          id="ratings"
+          id="rating"
           className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
           placeholder="Let us know how we can help you"
-          required=""
+          required="true"
+          onChange={feedbackForm.handleChange}
+          value={feedbackForm.values.rating}
         >
           <option value="5">5 stars</option>
           <option value="4">4 stars</option>
           <option value="3">3 stars</option>
           <option value="2">2 stars</option>
-          <option value="1">1 star</option>
+          <option value="1">1 stars</option>
         </select>
       </div>
       <div className="sm:col-span-2">
@@ -74,7 +103,9 @@ const Feedback = () => {
           rows={6}
           className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
           placeholder="Leave a comment..."
-          defaultValue={""}
+          required="true"
+          onChange={feedbackForm.handleChange}
+          value={feedbackForm.values.message}
         />
       </div>
       <button
