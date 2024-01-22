@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -34,11 +34,11 @@ const Footer = () => {
                 <p>Building No-258, Yadav Colony,<br />
                   Rajeev Gandhi Marg, Ballabgarh,<br />
                   Faridabad (Haryana) 121004</p>
-                <p className='py-2'>E-mail: <a>ashishverma510207@gmail.com</a></p>
+                <p className='py-2'>E-mail: <Link>ashishverma510207@gmail.com</Link></p>
                 <div className='flex gap-4'>
-                  <a className='text-3xl text-blue-700'><i class="fa-brands fa-facebook"></i></a>
-                  <a className='text-3xl text-red-700'><i class="fa-brands fa-youtube"></i></a>
-                  <a className='text-3xl text-pink-700'><i class="fa-brands fa-instagram"></i></a>
+                  <Link className='text-3xl text-blue-700'><i class="fa-brands fa-facebook"></i></Link>
+                  <Link className='text-3xl text-red-700'><i class="fa-brands fa-youtube"></i></Link>
+                  <Link className='text-3xl text-pink-700'><i class="fa-brands fa-instagram"></i></Link>
                 </div>
             </div>
           </div>
