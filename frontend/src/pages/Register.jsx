@@ -2,8 +2,32 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import {useFormik} from 'formik'
+import * as Yup from 'yup';
+
+const registerSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required').min(4,'Name is too short'),
+  email: Yup.string().email('Invalid email').required('Required'),
+  password:Yup.string().required('Password is required').min(8,'Password is too short'),
+  // .matches(/[a-zA-Z]\d/, 'password must include uppercase and lowercase letter'),
+  confirm:Yup.string().oneOf([Yup.ref('password'),null], 'Password must match').required('confirm password is required')
+})
 
 const Register = () => {
+
+  const registerForm = useFormik({
+    initialvalues:{
+      name: '',
+      email: '',
+      password: '',
+      confirm: '',
+    },
+    onsubmit:(values)=>{
+      console.log(values);
+    },
+    validationSchema:registerSchema
+  })
+
   return (
     <>
       <Navbar />
@@ -27,7 +51,9 @@ const Register = () => {
                     id="name"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                     placeholder="Enter your name"
-                    required=""
+                    required="true"
+                    onChange={registerForm.handleChange}
+                    value={registerForm.values.name}
                   />
                 </div>
                 <div>
@@ -43,7 +69,9 @@ const Register = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:border-primary-600 block w-full p-2.5"
                     placeholder="name@company.com"
-                    required=""
+                    required="true"
+                    onChange={registerForm.handleChange}
+                    value={registerForm.values.email}
                   />
                 </div>
                 <div>
@@ -59,23 +87,27 @@ const Register = () => {
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:border-primary-600 block w-full p-2.5 "
-                    required=""
+                    required="true"
+                    onChange={registerForm.handleChange}
+                    value={registerForm.values.password}
                   />
                 </div>
                 <div>
                   <label
-                    htmlFor="confirm-password"
+                    htmlFor="confirm"
                     className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     Confirm password
                   </label>
                   <input
-                    type="confirm-password"
-                    name="confirm-password"
-                    id="confirm-password"
+                    type="password"
+                    name="confirm"
+                    id="confirm"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:border-primary-600 block w-full p-2.5 "
-                    required=""
+                    required="true"
+                    onChange={registerForm.handleChange}
+                    value={registerForm.values.confirm}
                   />
                 </div>
                 <button
