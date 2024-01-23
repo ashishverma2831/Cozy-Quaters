@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 
-// User Routers
-const UserRouter = require('./routers/userRouter')
-
 // Initialize express
 const app = express();
 const port = 5000;
@@ -18,6 +15,10 @@ mongoose.connect(url)
 }).catch((err) => {
     console.log(err);
 });
+
+
+// User Routers
+const UserRouter = require('./routers/userRouter')
 
 // Middlewares
 app.use(express.json());

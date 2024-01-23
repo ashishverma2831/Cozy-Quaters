@@ -4,6 +4,14 @@ const Model = require('../models/userModel')
 
 router.post('/add',(req,res)=>{
     console.log(req.body);
+    const {name,email,password,confirm} = req.body
+    new Model(req.body).save()
+    .then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err);
+        res.json(err)
+    });
 })
 
-module.exports = Model
+module.exports = router
