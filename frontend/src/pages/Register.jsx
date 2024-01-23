@@ -4,6 +4,9 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import {useFormik} from 'formik'
 import * as Yup from 'yup';
+import { enqueueSnackbar } from 'notistack';
+import { useNavigate } from 'react-router-dom';
+
 
 const registerSchema = Yup.object().shape({
   name: Yup.string().required('Name is required').min(4,'Name is too short'),
@@ -15,6 +18,7 @@ const registerSchema = Yup.object().shape({
 
 const Register = () => {
 
+  const navigate = useNavigate();
   const registerForm = useFormik({
     initialValues:{
       name: '',
@@ -22,8 +26,27 @@ const Register = () => {
       password: '',
       confirm: '',
     },
-    onSubmit:(values)=>{
+    onSubmit: async(values,{setSubmitting,resetForm})=>{
       console.log(values);
+      setSubmitting(true);
+      const res = await fetch('http://localhost:5000/user/add',{
+        method:'POST',
+        body:JSON.stringify(values),
+        headers:{
+          'Content-Type':'application/json'
+        }
+      });
+      console.log(res.status);
+      setSubmitting(false);
+
+      if(res.status===200){
+        enqueueSnackbar('User Registered Successfully', {variant:'success'})
+        resetForm();
+        navigate('/login');
+      }
+      else{
+        enqueueSnackbar('Something went Wrong', {variant:'error'})
+      }
     },
     validationSchema:registerSchema
   })
@@ -55,6 +78,7 @@ const Register = () => {
                     onChange={registerForm.handleChange}
                     value={registerForm.values.name}
                   />
+                  <span className='text-sm text-red-600'>{registerForm.touched.name && registerForm.errors.name}</span>
                 </div>
                 <div>
                   <label
@@ -73,6 +97,7 @@ const Register = () => {
                     onChange={registerForm.handleChange}
                     value={registerForm.values.email}
                   />
+                  <span className='text-sm text-red-600'>{registerForm.touched.email && registerForm.errors.email}</span>
                 </div>
                 <div>
                   <label
@@ -91,6 +116,7 @@ const Register = () => {
                     onChange={registerForm.handleChange}
                     value={registerForm.values.password}
                   />
+                  <span className='text-sm text-red-600'>{registerForm.touched.password && registerForm.errors.password}</span>
                 </div>
                 <div>
                   <label
@@ -109,9 +135,11 @@ const Register = () => {
                     onChange={registerForm.handleChange}
                     value={registerForm.values.confirm}
                   />
+                  <span className='text-sm text-red-600'>{registerForm.touched.confirm && registerForm.errors.confirm}</span>
                 </div>
                 <button
                   type="submit"
+                  disabled={registerForm.setSubmitting}
                   className="w-full text-white text-lg bg-gray-600 hover:bg-gray-700 focus:outline-none font-normal rounded-lg px-5 py-2.5 text-center "
                 >
                   Create an account
