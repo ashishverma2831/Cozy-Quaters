@@ -1,18 +1,46 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useFormik } from 'formik'
+import { enqueueSnackbar } from 'notistack';
+import useAppContext from '../AppContext'
 
 const Login = () => {
 
+  const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
+  const navigate = useNavigate();
   const loginForm = useFormik({
     initialValues:{
       email:'',
       password:''
     },
-    onSubmit:(values)=>{
+    onSubmit:async(values)=>{
       console.log(values)
+      const res = await fetch('http://localhost:5000/user/authenticate',{
+        method:"POST",
+        body:JSON.stringify(values),
+        headers:{
+          'Content-Type':'application/json'
+        }
+      });
+
+      if(res.status===200){
+        enqueueSnackbar('Login in successfully',{ variant:'success'})
+
+        //session storage
+        const data = await res.json();
+        // data including ids
+        sessionStorage.setItem('user',JSON.stringify(data))
+        setLoggedIn(true);
+        navigate('/');
+      }
+      else if(res.status===401){
+        enqueueSnackbar('Invalid Credentials',{ variant:'error'})
+      }
+      else{
+        enqueueSnackbar("Error Occured! Try again later.",{variant:'error'});
+      }
     }
   })
 
