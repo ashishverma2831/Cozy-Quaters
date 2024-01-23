@@ -11,6 +11,7 @@ import Feedback from './pages/Feedback'
 import ErrorPage from './pages/ErrorPage'
 import ForgetPassword from './pages/ForgetPassword'
 import { AppProvider } from './AppContext'
+import AddRoom from './components/AddRoom'
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/forget-password" element={<ForgetPassword />} />
+            <Route path="/add-room" element={<AddRoom />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           </AppProvider>

@@ -4,12 +4,10 @@ import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Slider from '../components/Slider'
 import FeatureCard from '../components/FeatureCard'
-import AddRoom from '../components/AddRoom'
 
 const Home = () => {
   return (
     <>
-      <AddRoom />
       <Navbar />
       <Hero />
       <section className='my-10  max-w-screen-xl mx-auto'>
