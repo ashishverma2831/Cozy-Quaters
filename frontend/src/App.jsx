@@ -15,7 +15,7 @@ import ForgetPassword from './pages/ForgetPassword'
 const App = () => {
   return (
     <>
-      <SnackbarProvider>
+      <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical:'top', horizontal:'right' }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />

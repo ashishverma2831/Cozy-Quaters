@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
+import { enqueueSnackbar } from 'notistack';
+import { useNavigate } from 'react-router-dom';
 
 
 const contactSchema = Yup.object().shape({
@@ -13,14 +15,34 @@ const contactSchema = Yup.object().shape({
 
 const Contact = () => {
 
+  const navigate = useNavigate();
   const contactForm = useFormik({
     initialValues:{
       email:'',
       subject:'',
       message:''
     },
-    onSubmit:(values)=>{
+    onSubmit:async(values,{setSubmitting,resetForm})=>{
       console.log(values);
+      setSubmitting(true);
+      const res = await fetch('http://localhost:5000/contact/add',{
+        method:'POST',
+        body:JSON.stringify(values),
+        headers:{
+          'Content-Type':'application/json'
+        }
+      });
+      console.log(res.status);
+      setSubmitting(false);
+
+      if(res.status===200){
+        enqueueSnackbar('User Message Submitted Successfully', {variant:'success'})
+        resetForm();
+        navigate('/contact');
+      }
+      else{
+        enqueueSnackbar('Something went Wrong', {variant:'error'})
+      }
     },
     validationSchema:contactSchema
   })
@@ -54,6 +76,7 @@ const Contact = () => {
           onChange={contactForm.handleChange}
           value={contactForm.values.email}
         />
+        <span className='text-sm text-red-600'>{contactForm.touched.email && contactForm.errors.email}</span>
       </div>
       <div>
         <label
@@ -71,6 +94,7 @@ const Contact = () => {
           onChange={contactForm.handleChange}
           value={contactForm.values.subject}
         />
+        <span className='text-sm text-red-600'>{contactForm.touched.subject && contactForm.errors.subject}</span>
       </div>
       <div className="sm:col-span-2">
         <label
@@ -89,10 +113,11 @@ const Contact = () => {
           onChange={contactForm.handleChange}
           value={contactForm.values.message}
         />
+        <span className='text-sm text-red-600'>{contactForm.touched.message && contactForm.errors.message}</span>
       </div>
       <button
         type="submit"
-        className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-gray-700 sm:w-fit hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-gray-700 sm:w-fit hover:bg-gray-800 focus:outline-none "
       >
         Send message
       </button>
