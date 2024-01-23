@@ -1,19 +1,21 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import useAppContext from '../AppContext'
 
 const Navbar = () => {
 
-  const cities = ['Lucknow','Barabanki','Kanpur','Banaras']
-  return (
-    <>
-        <nav className="border-gray-200">
-     <div className="max-w-screen-xl  flex items-center justify-between mx-auto p-4">
-      <div className=" text-3xl font-extrabold italic whitespace-nowrap ">
-        Cozy Quarters
-      </div>
-    <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse justify-end md:w-auto w-full ">
-      <div className='flex'>
-      <NavLink 
+  const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
+  const showLoginOptions = ()=>{
+    if(loggedIn){
+      return (
+        <button className='p-2 border'>
+          <button className='' onClick={logout}>logout</button>
+        </button>
+      )
+    }
+    else{
+      return <>
+         <NavLink 
         to='/login'
         className="text-gray-900 focus:outline-none  font-medium  text-sm px-4 py-2 text-center border-gray-400"
       >
@@ -26,6 +28,33 @@ const Navbar = () => {
       >
         Register
       </NavLink>
+      </>
+    }
+  }
+  const cities = ['Lucknow','Barabanki','Kanpur','Banaras']
+  return (
+    <>
+        <nav className="border-gray-200">
+     <div className="max-w-screen-xl  flex items-center justify-between mx-auto p-4">
+      <div className=" text-3xl font-extrabold italic whitespace-nowrap ">
+        Cozy Quarters
+      </div>
+    <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse justify-end md:w-auto w-full ">
+      <div className='flex'>
+      {/* <NavLink 
+        to='/login'
+        className="text-gray-900 focus:outline-none  font-medium  text-sm px-4 py-2 text-center border-gray-400"
+      >
+        Login
+      </NavLink>
+      <div className=' w-[1px] h-6 self-center bg-gray-600'></div>
+      <NavLink
+        to='/register'
+        className="text-gray-900 focus:outline-none font-medium text-sm px-4 py-2 text-center border-gray-400"
+      >
+        Register
+      </NavLink> */}
+        {showLoginOptions()}
       </div>
       <button
         type="button"

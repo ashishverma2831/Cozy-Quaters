@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Feedback from './pages/Feedback'
 import ErrorPage from './pages/ErrorPage'
 import ForgetPassword from './pages/ForgetPassword'
+import { AppProvider } from './AppContext'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
     <>
       <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical:'top', horizontal:'right' }}>
         <BrowserRouter>
+          <AppProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -28,6 +30,7 @@ const App = () => {
             <Route path="/forget-password" element={<ForgetPassword />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
+          </AppProvider>
         </BrowserRouter>
       </SnackbarProvider>
     </>
