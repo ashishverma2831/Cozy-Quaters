@@ -1,10 +1,13 @@
 import React from 'react'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 const AddRoom = () => {
     return (
         <>
-            <section className='max-w-screen-lg flex flex-col gap-4 mx-auto p-5'>
-                <p className='text-3xl font-extrabold text-center'>Submit Room</p>
+        <Navbar />
+            <section className='max-w-screen-lg flex flex-col gap-4 mx-auto p-5 my-10'>
+                <p className='text-3xl font-extrabold text-center my-4'>Submit Room</p>
                 <form>
                     <div className='flex gap-4 md:gap-6 w-full py-2'>
                         <div className='w-full'>
@@ -174,6 +177,7 @@ const AddRoom = () => {
                     </div>
                 </form>
             </section>
+            <Footer />
         </>
     )
 }
