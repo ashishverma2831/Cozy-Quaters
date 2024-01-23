@@ -1,15 +1,11 @@
-const {Schema,model} = require('../connection');
+const {Schema,model} = require('mongoose');
 
 const contactSchema = new Schema({
-    name:{
-        type:String,
-        required:true
-    },
     email:{
         type:String,
         required:true
     },
-    rating:{
+    subject:{
         type:String,
         required:true
     },

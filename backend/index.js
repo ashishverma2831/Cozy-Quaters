@@ -19,6 +19,8 @@ mongoose.connect(url)
 
 // User Routers
 const UserRouter = require('./routers/userRouter')
+const FeedbackRouter = require('./routers/feedbackRouter')
+const ContactRouter = require('./routers/contactRouter')
 
 // Middlewares
 app.use(express.json());
@@ -26,6 +28,8 @@ app.use(cors({
     origin:'http://localhost:5173'
 }));
 app.use('/user',UserRouter)
+app.use('/feedback',FeedbackRouter)
+app.use('/contact',ContactRouter)
 
 
 
