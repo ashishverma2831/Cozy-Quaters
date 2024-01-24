@@ -19,7 +19,7 @@ const Footer = () => {
                 <p className='text-lg font-semibold pb-2 md:py-5'>Helpful Links</p>
                 <div>
                   <ul className='flex gap-y-2 flex-wrap'>
-                    <li className='w-1/2 hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer hover:translate-x-1 hover:transition-all'>Login</a></li>
+                    <li className='w-1/2 hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer '>Login</a></li>
                     <li className=' w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>About</a></li>
                     <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Register</a></li>
                     <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Subscription</a></li>

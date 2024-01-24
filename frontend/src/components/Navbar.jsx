@@ -91,7 +91,7 @@ const Navbar = () => {
       </>
     }
   }
-  const cities = ['Lucknow', 'Barabanki', 'Kanpur', 'Banaras']
+  
   return (
     <>
       <nav className="border-gray-200">
@@ -156,7 +156,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <div>
+                {/* <div>
                   <button
                     id="dropdownHoverButton"
                     data-dropdown-toggle="dropdownHover"
@@ -181,7 +181,6 @@ const Navbar = () => {
                       />
                     </svg>
                   </button>
-                  {/* Dropdown menu */}
                   <div
                     id="dropdownHover"
                     className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
@@ -204,13 +203,18 @@ const Navbar = () => {
                       })}
                     </ul>
                   </div>
-                </div>
-
+                </div> */}
+                <NavLink
+                  to='/cities'
+                  className="block py-2 px-3 text-gray-900 rounded md:bg-transparent hover:bg-gray-100 "
+                  aria-current="page"
+                >
+                  Cities
+                </NavLink>
               </li>
               <li>
                 <NavLink
                   to='/about'
-                  href="#"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100  "
                 >
                   About
@@ -219,7 +223,6 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to='/feedback'
-                  href="#"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 "
                 >
                   Feedback
@@ -228,7 +231,6 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to='/contact'
-                  href="#"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 "
                 >
                   Contact Us
@@ -283,7 +285,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href="#"
+                      to='/cities'
                       className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                     >
                       <span className="ms-3">Cities</span>
