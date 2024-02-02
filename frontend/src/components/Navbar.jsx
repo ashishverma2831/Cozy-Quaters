@@ -70,7 +70,6 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
       )
     }
     else {
