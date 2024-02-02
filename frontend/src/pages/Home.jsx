@@ -34,33 +34,33 @@ const Home = () => {
         <div className='flex gap-8 flex-wrap'>
           <div className='flex gap-8 flex-wrap md:flex-nowrap w-full'>
             <div className='md:w-1/3 w-full overflow-hidden flex justify-center items-center'>
-              <img className='h-[436px] hover:scale-150 hover:duration-700 duration-700' src='https://www.pgchoice.com//assets/images/delhi.jpg' />
+              <img className='h-[436px] hover:scale-150 hover:duration-700 duration-700 opacity-80' src='https://www.pgchoice.com//assets/images/delhi.jpg' />
               <div className='p-5 z-10 absolute'>
-                <p className='text-center font-bold text-xl '>Faridabad</p>
-                <p className='text-center font-semibold text-md '>56 Properties</p>
+                <p className='text-center font-extrabold text-2xl '>Faridabad</p>
+                <p className='text-center font-extrabold text-md '>56 Properties</p>
               </div>
             </div>
             <div className='md:w-2/3 w-full overflow-hidden flex justify-center items-center'>
-              <img className='h-[436px] w-full hover:scale-150 hover:duration-700 duration-700' src='https://www.pgchoice.com//assets/images/faridabad.jpg' />
+              <img className='h-[436px] w-full hover:scale-150 hover:duration-700 duration-700 opacity-80' src='https://www.pgchoice.com//assets/images/faridabad.jpg' />
               <div className='p-5 z-10 absolute'>
-                <p className='text-center font-bold text-xl '>Ghaziabad</p>
-                <p className='text-center font-semibold text-md '>78 Properties</p>
+                <p className='text-center font-extrabold text-2xl'>Ghaziabad</p>
+                <p className='text-center font-extrabold text-md '>78 Properties</p>
               </div>
             </div>
           </div>
           <div className='flex gap-8 flex-wrap md:flex-nowrap w-full'>
             <div className='md:w-2/3 w-full overflow-hidden flex justify-center items-center'>
-              <img className='h-[436px] w-full hover:scale-150 hover:duration-700 duration-700' src='https://www.pgchoice.com//assets/images/gurgaon.jpg' />
+              <img className='h-[436px] w-full hover:scale-150 hover:duration-700 duration-700 opacity-80' src='https://www.pgchoice.com//assets/images/gurgaon.jpg' />
               <div className='p-5 z-10 absolute'>
-                <p className='text-center font-bold text-xl '>Gurgaon</p>
-                <p className='text-center font-semibold text-md '>78 Properties</p>
+                <p className='text-center font-extrabold text-2xl '>Gurgaon</p>
+                <p className='text-center font-extrabold text-md '>78 Properties</p>
               </div>
             </div>
             <div className='md:w-1/3 w-full overflow-hidden flex justify-center items-center'>
-              <img className='h-[436px] hover:scale-150 hover:duration-700 duration-700' src='https://www.pgchoice.com//assets/images/noida.jpg' />
+              <img className='h-[436px] hover:scale-150 hover:duration-700 duration-700 opacity-80' src='https://www.pgchoice.com//assets/images/noida.jpg' />
               <div className='p-5 z-10 absolute'>
-                <p className='text-center font-bold text-xl '>Noida</p>
-                <p className='text-center font-semibold text-md '>78 Properties</p>
+                <p className='text-center font-extrabold text-2xl '>Noida</p>
+                <p className='text-center font-extrabold text-md '>78 Properties</p>
               </div>
             </div>
           </div>
