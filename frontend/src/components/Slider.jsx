@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import {Link} from 'react-router-dom'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,7 +11,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper/modules';
-import RoomCard from './RoomCard';
+// import RoomCard from './RoomCard';
 import rooms from './roomData.js';
 
 const Slider = () => {
@@ -52,7 +53,7 @@ const Slider = () => {
           rooms.map((room) => {
             return (
               <SwiperSlide>
-                <div>
+                <div className='my-4'>
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
                     <Link href="#">
                       <img className="rounded-t-lg w-full" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQgByBT5IiAT_a2x9pUVb4VMoOrlzHH7Jrzj-HB5jzHlR4lNLMS" alt="" />
@@ -60,7 +61,7 @@ const Slider = () => {
                     <div className="p-5">
                       <Link href="#">
                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                          {room.title}
+                          {room.title.toUpperCase()}
                         </h5>
                         <p className='font-semibold text-md mb-2'><i className="fa-solid fa-location-dot"></i> {room.location} </p>
                       </Link>
