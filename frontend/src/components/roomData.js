@@ -39,6 +39,36 @@ const rooms = [
         ownerName:'Friends guest house',
         uploaded:'3 months ago'
     },
+    {
+        title:'celestia girls pg',
+        location:'Navrangpura, Ahmedabad',
+        accomodationFor:'Girls',
+        suitableFor:'Students',
+        price:9000,
+        image:'https://www.pgchoice.com/uploads/property/small/Celestia_girls_pg_Single_Room.webp',
+        ownerName:'Celestia girls',
+        uploaded:'6 months ago'
+    },
+    {
+        title:'Sanskaar pg and hostel',
+        location:'Sardar patel nagar, Ahmedabad',
+        accomodationFor:'Boys and Girls',
+        suitableFor:'Working',
+        price:7500,
+        image:'https://www.pgchoice.com/uploads/property/small/Sanskar_pg_and_hostel_9974097933_tworbed_sharing_room.webp',
+        ownerName:'Sanskaar pg',
+        uploaded:'6 months ago'
+    },
+    {
+        title:'Royal pg',
+        location:'Usmanpura, Ahmedabad',
+        accomodationFor:'Boys and Girls',
+        suitableFor:'Students',
+        price:7000,
+        image:'https://www.pgchoice.com/uploads/property/small/Royal_pg_in_Usmanpura_9924835783_twobed_sharing_room.webp',
+        ownerName:'Royal pg',
+        uploaded:'6 months ago'
+    },  
 ]
 
 export default rooms;
