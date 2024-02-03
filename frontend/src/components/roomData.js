@@ -69,6 +69,36 @@ const rooms = [
         ownerName:'Royal pg',
         uploaded:'6 months ago'
     },  
+    {
+        title:'dozo iris premium girls pg',
+        location:'Sector 1 hsr layout, Bangalore',
+        accomodationFor:'Girls',
+        suitableFor:'Students and Working',
+        price:7500,
+        image:'https://www.pgchoice.com/uploads/property/small/Front2.jpeg',
+        ownerName:'Chetan pg',
+        uploaded:'3 months ago'
+    },
+    {
+        title:'Nr home stays pg for boys',
+        location:'9th main road, Bangalore',
+        accomodationFor:'Boys',
+        suitableFor:'Students and Working',
+        price:6000,
+        image:'https://www.pgchoice.com/uploads/property/small/IMG_20231019_113245.jpg',
+        ownerName:'Nr Home Stays pg',
+        uploaded:'3 months ago'
+    },
+    {
+        title:'Gopik Girls pg',
+        location:'Izatnagar, Bareilly',
+        accomodationFor:'Girls',
+        suitableFor:'Students and Working',
+        price:7500,
+        image:'https://www.pgchoice.com/uploads/property/small/IMG-20231012-WA0010.jpg',
+        ownerName:'Divya Khosla',
+        uploaded:'3 months ago'
+    },
 ]
 
 export default rooms;
