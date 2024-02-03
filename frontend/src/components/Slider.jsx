@@ -72,7 +72,7 @@ const Slider = () => {
                       </div>
                       <div className='flex mt-4 justify-between'>
                         <div><i className="fa-solid fa-user"></i> {room.ownerName} </div>
-                        <div><i className="fa-regular fa-calendar-days"></i> {room.uploaded} </div>
+                        {/* <div><i className="fa-regular fa-calendar-days"></i> {room.uploaded} </div> */}
                       </div>
                     </div>
                   </div>
