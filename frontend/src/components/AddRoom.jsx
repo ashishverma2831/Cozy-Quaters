@@ -5,7 +5,7 @@ import Footer from './Footer'
 const AddRoom = () => {
     return (
         <>
-        <Navbar />
+            <Navbar />
             <section className='max-w-screen-lg flex flex-col gap-4 mx-auto p-5 my-10'>
                 <p className='text-3xl font-extrabold text-center my-4'>Submit Room</p>
                 <form>
@@ -131,6 +131,21 @@ const AddRoom = () => {
                             />
                         </div>
                     </div>
+                    <div className='flex gap-4 md:gap-6 w-full py-2'>
+                        <div className='w-full'>
+                            <label
+                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                htmlFor="default_size"
+                            >
+                                Default size
+                            </label>
+                            <input
+                                className="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                id="default_size"
+                                type="file"
+                            />
+                        </div>
+                    </div>
                     <div className='flex gap-4 md:gap-6 w-full py-2 '>
                         <div className='w-full'>
                             <label
@@ -149,7 +164,7 @@ const AddRoom = () => {
                         </div>
                     </div>
                     <div className='flex gap-4 md:gap-6 w-full py-2 '>
-                    <div className='w-full'>
+                        <div className='w-full'>
                             <label
                                 htmlFor="address"
                                 className="block mb-2 text-sm font-medium text-gray-900 "
