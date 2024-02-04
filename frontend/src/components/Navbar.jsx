@@ -31,17 +31,17 @@ const Navbar = () => {
         </div>
       )
     }
-    else{
+    else {
       return (
         <li>
-        <button
-                className="block text-left w-full px-5 rounded-lg py-2.5 text-sm text-gray-900 hover:bg-gray-100 "
-                onClick={logout}
-              >
-                <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
-                Sign out
-              </button>
-              </li>
+          <button
+            className="block text-left w-full px-5 rounded-lg py-2.5 text-sm text-gray-900 hover:bg-gray-100 "
+            onClick={logout}
+          >
+            <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+            Sign out
+          </button>
+        </li>
       )
     }
   }

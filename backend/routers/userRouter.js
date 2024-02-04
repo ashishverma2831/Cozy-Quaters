@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const Model = require('../models/userModel')
+const Model = require('../models/userModel.js')
+const bcryptjs = require('bcryptjs');
 
 router.post('/add',(req,res)=>{
     console.log(req.body);
     const {name,email,password,confirm} = req.body
-    new Model(req.body).save()
+    const hashedPassword = bcryptjs.hashSync(password,10);
+    const hashedConfirmPassword = bcryptjs.hashSync(confirm,10);
+    
+    new Model({name,email,password:hashedPassword,confirm:hashedConfirmPassword}).save()
     .then((result) => {
         res.json(result)
     }).catch((err) => {
         console.error(err);
-        res.json(err)
+        res.status(500).json(err)
     });
 })
 
