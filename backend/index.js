@@ -21,6 +21,7 @@ mongoose.connect(process.env.MONGO_DB_URI || port)
 const UserRouter = require('./routers/userRouter')
 const FeedbackRouter = require('./routers/feedbackRouter')
 const ContactRouter = require('./routers/contactRouter')
+const AddRoomRouter = require('./routers/addRoomRouter')
 
 // Middlewares
 app.use(express.json());
@@ -30,6 +31,7 @@ app.use(cors({
 app.use('/user',UserRouter)
 app.use('/feedback',FeedbackRouter)
 app.use('/contact',ContactRouter)
+app.use('/add-room',AddRoomRouter)
 
 
 
