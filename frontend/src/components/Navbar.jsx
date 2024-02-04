@@ -5,10 +5,38 @@ import useAppContext from '../AppContext'
 const Navbar = () => {
 
   const { currentUser, setCurrentUser, loggedIn, setLoggedIn, logout } = useAppContext();
+
+  const showResponsiveLoginOptions = () => {
+    if (!loggedIn) {
+      return (
+        <div>
+          <li>
+            <NavLink
+              to='/login'
+              href="#"
+              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <span className="ms-3">Login</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/register'
+              href="#"
+              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <span className="ms-3">Register</span>
+            </NavLink>
+          </li>
+        </div>
+      )
+    }
+  }
+
   const showLoginOptions = () => {
     if (loggedIn) {
       return (
-        <div>
+        <div className='my-auto'>
           <button
             id="dropdownAvatarNameButton"
             data-dropdown-toggle="dropdownAvatarName"
@@ -56,7 +84,7 @@ const Navbar = () => {
                   to="/add-room"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
-                  Add Your Own Room 
+                  Add Your Own Room
                 </NavLink>
               </li>
             </ul>
@@ -90,7 +118,7 @@ const Navbar = () => {
       </>
     }
   }
-  
+
   return (
     <>
       <nav className="border-gray-200">
@@ -317,7 +345,7 @@ const Navbar = () => {
                       <span className="ms-3">Contact Us</span>
                     </NavLink>
                   </li>
-                  <li>
+                  {/* <li>
                     <NavLink
                       to='/login'
                       href="#"
@@ -334,7 +362,8 @@ const Navbar = () => {
                     >
                       <span className="ms-3">Register</span>
                     </NavLink>
-                  </li>
+                  </li> */}
+                  {showResponsiveLoginOptions()}
                 </ul>
               </div>
             </div>
