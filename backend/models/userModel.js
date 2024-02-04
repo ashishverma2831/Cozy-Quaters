@@ -16,7 +16,7 @@ const userSchema = new Schema({
     confirm:{
         type:String,
         required:true
-    }   
+    }
 });
 
 module.exports = model('user',userSchema);
