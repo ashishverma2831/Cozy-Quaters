@@ -31,6 +31,19 @@ const Navbar = () => {
         </div>
       )
     }
+    else{
+      return (
+        <li>
+        <button
+                className="block text-left w-full px-5 rounded-lg py-2.5 text-sm text-gray-900 hover:bg-gray-100 "
+                onClick={logout}
+              >
+                <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+                Sign out
+              </button>
+              </li>
+      )
+    }
   }
 
   const showLoginOptions = () => {
@@ -49,7 +62,7 @@ const Navbar = () => {
               src="/docs/images/people/profile-picture-3.jpg"
               alt="user photo"
             /> */}
-            User Name
+            {currentUser.name.toUpperCase()}
             <svg
               className="w-2.5 h-2.5 ms-3"
               aria-hidden="true"
@@ -69,11 +82,11 @@ const Navbar = () => {
           {/* Dropdown menu */}
           <div
             id="dropdownAvatarName"
-            className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+            className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-52 dark:bg-gray-700 dark:divide-gray-600"
           >
             <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
               {/* <div className="font-medium ">name</div> */}
-              <div className="truncate">name@flowbite.com</div>
+              <div className="truncate"> {currentUser.email} </div>
             </div>
             <ul
               className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -93,6 +106,7 @@ const Navbar = () => {
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
                 onClick={logout}
               >
+                <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
                 Sign out
               </button>
             </div>
