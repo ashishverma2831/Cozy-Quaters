@@ -36,7 +36,7 @@ const AddRoom = () => {
         onSubmit: async(values,{setSubmitting,resetForm}) => {
             console.log(values)
             setSubmitting(true);
-            const response = await fetch('localhost:5000/add-room/add', {
+            const response = await fetch('http://localhost:5000/add-room/add', {
                 method: 'POST',
                 body: JSON.stringify(values),
                 headers: {
