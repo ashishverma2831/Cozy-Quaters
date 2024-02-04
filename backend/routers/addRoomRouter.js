@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const AddRoom = require('../models/addRoomModel')
+const AddRoom = require('../models/addRoomModel.js')
 
 router.post('/add',(req,res)=>{
     console.log(req.body);

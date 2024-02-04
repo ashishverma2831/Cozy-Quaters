@@ -268,6 +268,7 @@ const AddRoom = () => {
                     <div className='flex justify-between gap-12 my-4'>
                         <button
                             type='reset'
+                            onClick={() => submitRoom.resetForm()}
                             className=" w-auto text-white text-lg bg-gray-600 hover:bg-gray-700 focus:outline-none font-normal rounded px-10 py-2.5 text-center "
                         >Reset</button>
                         <button

@@ -41,10 +41,10 @@ const addRoomSchema = new Schema({
         type:String,
         required:true,
     },
-    timestamps:{
-        createdAt:'created_at',
-        updatedAt:'updated_at'
-    }
+    // timestamps:{
+    //     createdAt:'created_at',
+    //     updatedAt:'updated_at'
+    // }
 });
 
-module.exports = model('AddRoom',addRoomSchema);
+module.exports = model('addroom',addRoomSchema);
