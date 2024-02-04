@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -7,6 +7,8 @@ import { enqueueSnackbar } from 'notistack';
 import useAppContext from '../AppContext'
 
 const Login = () => {
+
+  const [loginPassword, setLoginPassword] = useState(true)
 
   const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
   const navigate = useNavigate();
@@ -80,8 +82,9 @@ const Login = () => {
             >
               Password
             </label>
+            <div className='relative'>
             <input
-              type="password"
+              type={loginPassword?'password':'text'}
               name="password"
               id="password"
               placeholder="••••••••"
@@ -90,6 +93,8 @@ const Login = () => {
               onChange={loginForm.handleChange}
               value={loginForm.values.password}
             />
+            <button type='button' className='absolute end-2 bottom-2' onClick={()=>{setLoginPassword(!loginPassword)}}>{loginPassword?<i className="fa-solid fa-eye"></i>:<i className="fa-regular fa-eye"></i>}</button>
+            </div>
           </div>
           <div className="flex items-center justify-end">
             {/* <div className="flex items-start">
