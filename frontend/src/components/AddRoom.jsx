@@ -33,8 +33,10 @@ const AddRoom = () => {
             description: '',
             address: ''
         },
-        onSubmit: values => {
+        onSubmit: async(values,{setSubmitting,resetForm}) => {
             console.log(values)
+            setSubmitting(true);
+        
         },
         validationSchema: SubmitRoomSchema
     })
