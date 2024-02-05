@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Slider from '../components/Slider'
 import FeatureCard from '../components/FeatureCard'
+import rooms from '../components/roomData'
 
 const Home = () => {
   return (

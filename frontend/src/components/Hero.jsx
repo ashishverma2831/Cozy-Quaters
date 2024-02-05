@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import rooms from './roomData'
+import { useState } from 'react';
 
-const Hero = () => {
+const Hero = (props) => {
+
+  const searchInputRef = useRef(null);
+  const [roomList, setRoomList] = useState(rooms)
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // console.log(searchInputRef.current.value);
+    const filteredRooms = rooms.filter((room)=>{
+      return room.location.toLowerCase().includes(searchInputRef.current.value.toLowerCase());
+    })
+    console.log(filteredRooms);
+    setRoomList(filteredRooms);
+  }
+
   return (
     <>
       <div className='h-[468px] bg-no-repeat bg-cover bg-center  bg-[url(https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]'>
@@ -86,13 +101,15 @@ const Hero = () => {
                 <input
                   type="search"
                   id="search-dropdown"
-                  className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg rounded-s-gray-100 rounded-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                  placeholder="Enter address..."
+                  className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg rounded-s-gray-100 rounded-s-2 border border-gray-300"
+                  placeholder="Enter city..."
                   required=""
+                  ref={searchInputRef}
                 />
                 <button
                   type="submit"
-                  className="absolute top-0 end-0 p-2.5 h-full text-sm font-medium text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  onClick={handleSearch}
+                  className="absolute top-0 end-0 p-2.5 h-full text-sm font-medium text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800  focus:outline-none "
                 >
                   <svg
                     className="w-4 h-4"
