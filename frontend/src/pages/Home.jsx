@@ -11,6 +11,7 @@ const Home = () => {
 
   const searchInputRef = useRef(null);
   const [roomList, setRoomList] = useState(rooms)
+  const [searchRoomList, setSearchRoomList] = useState([]);
   const handleSearch = (e) => {
     e.preventDefault();
     // console.log(searchInputRef.current.value);
@@ -19,6 +20,7 @@ const Home = () => {
     })
     console.log(filteredRooms);
     setRoomList(filteredRooms);
+    setSearchRoomList(filteredRooms);
   }
 
   return (
@@ -26,11 +28,13 @@ const Home = () => {
       <Navbar />
       <Hero  searchInputRef={searchInputRef} handleSearch={handleSearch} />
 
-      <section className='my-10 mx-auto max-w-screen-xl'>
+      {searchInputRef.current && searchInputRef.current.value?<p className='text-center font-bold text-2xl'>Search Results for {searchInputRef.current.value}</p>:<p className='text-center font-bold text-2xl'></p>}
+      <section className='my-10 mx-auto max-w-screen-xl flex flex-wrap gap-8 justify-center'>
       {
+        searchRoomList.length===0?<p className='text-center font-bold text-2xl'>No results found</p>:
         roomList.map((room)=>{
           return (
-            <div className='my-4' key={room}>
+                <div className='my-4' key={room}>
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
                     <Link href="#">
                       <img className="rounded-t-lg w-full h-[324px]" src={room.image} alt="room photo" />
@@ -38,7 +42,7 @@ const Home = () => {
                     <div className="p-5">
                       <Link href="#">
                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                          {room.title.toUpperCase()}
+                          {room.title.toUpperCase()} 
                         </h5>
                         <p className='font-semibold text-md mb-2'><i className="fa-solid fa-location-dot"></i> {room.location} </p>
                       </Link>
@@ -57,6 +61,7 @@ const Home = () => {
           )
         })
       }
+    
       </section>
       <section className='my-10  max-w-screen-xl mx-auto'>
         <div className='p-5'>
