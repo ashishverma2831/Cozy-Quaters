@@ -28,11 +28,11 @@ const Home = () => {
       <Navbar />
       <Hero  searchInputRef={searchInputRef} handleSearch={handleSearch} />
 
-      {searchInputRef.current && searchInputRef.current.value?<p className='text-center font-bold text-2xl'>Search Results for {searchInputRef.current.value}</p>:<p className='text-center font-bold text-2xl'></p>}
+      {searchInputRef.current && searchInputRef.current.value?<p className='text-center font-semibold text-4xl my-10'>Search Results for '{searchInputRef.current.value}'</p>:<p className='text-center font-bold text-4xl'></p>}
       <section className='my-10 mx-auto max-w-screen-xl flex flex-wrap gap-8 justify-center'>
       {
-        searchRoomList.length===0?<p className='text-center font-bold text-2xl'>No results found</p>:
-        roomList.map((room)=>{
+        roomList.length===0?<p className='text-center font-semibold text-2xl'>No results found</p>:
+        searchRoomList.map((room)=>{
           return (
                 <div className='my-4' key={room}>
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
