@@ -1,20 +1,6 @@
-import React, { useRef } from 'react'
-import rooms from './roomData'
-import { useState } from 'react';
+import React from 'react'
 
-const Hero = (props) => {
-
-  const searchInputRef = useRef(null);
-  const [roomList, setRoomList] = useState(rooms)
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // console.log(searchInputRef.current.value);
-    const filteredRooms = rooms.filter((room)=>{
-      return room.location.toLowerCase().includes(searchInputRef.current.value.toLowerCase());
-    })
-    console.log(filteredRooms);
-    setRoomList(filteredRooms);
-  }
+const Hero = ({searchInputRef,handleSearch}) => {
 
   return (
     <>

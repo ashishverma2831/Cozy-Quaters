@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useRef} from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
@@ -7,10 +7,23 @@ import FeatureCard from '../components/FeatureCard'
 import rooms from '../components/roomData'
 
 const Home = () => {
+
+  const searchInputRef = useRef(null);
+  const [roomList, setRoomList] = useState(rooms)
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // console.log(searchInputRef.current.value);
+    const filteredRooms = rooms.filter((room)=>{
+      return room.location.toLowerCase().includes(searchInputRef.current.value.toLowerCase());
+    })
+    console.log(filteredRooms);
+    setRoomList(filteredRooms);
+  }
+
   return (
     <>
       <Navbar />
-      <Hero />
+      <Hero  searchInputRef={searchInputRef} handleSearch={handleSearch} />
       <section className='my-10  max-w-screen-xl mx-auto'>
         <div className='p-5'>
           <p className='text-center font-bold text-4xl'>Newly added Rooms</p>
