@@ -6,10 +6,11 @@ const bcryptjs = require('bcryptjs');
 router.post('/add',(req,res)=>{
     console.log(req.body);
     const {name,email,password,confirm} = req.body
-    const hashedPassword = bcryptjs.hashSync(password,10);
-    const hashedConfirmPassword = bcryptjs.hashSync(confirm,10);
+    // const hashedPassword = bcryptjs.hashSync(password,10);
+    // const hashedConfirmPassword = bcryptjs.hashSync(confirm,10);
     
-    new Model({name,email,password:hashedPassword,confirm:hashedConfirmPassword}).save()
+    // new Model({name,email,password:hashedPassword,confirm:hashedConfirmPassword}).save()
+    new Model({name,email,password,confirm}).save()
     .then((result) => {
         res.json(result)
     }).catch((err) => {
