@@ -37,4 +37,15 @@ router.post('/authenticate',(req,res)=>{
     });
 })
 
+router.get('/cities/:city',(req,res)=>{
+    console.log(req.params.city);
+    Model.find({city:req.params.city})
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
 module.exports = router
