@@ -12,8 +12,13 @@ const AdminLogin = () => {
         },
         onSubmit: values => {
             console.log(values)
-            if(email==='ashishverma510207@gmail.com' && password==='admin'){
+            const {email, password} = values;
+            // console.log(email, password);
+            if(email==='ashishverma2831@gmail.com' && password==='admin'){
                 navigate('/admin-home');
+            }
+            else{
+                alert('Invalid Credentials');
             }
         }
     })
