@@ -69,4 +69,15 @@ router.get('/delete/:id',(req,res)=>{
     });
 })
 
+router.get('/update/:id',(req,res)=>{
+    console.log(req.params.id);
+    Model.findByIdAndUpdate(req.params.id,req.body,{new:true})
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
 module.exports = router 
