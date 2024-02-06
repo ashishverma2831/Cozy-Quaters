@@ -1,8 +1,13 @@
 import React from 'react'
+import AdminNavbar from './AdminNavbar'
+import Footer from '../components/Footer'
 
 const ViewContacts = () => {
   return (
-    <div>ViewContacts</div>
+    <>
+        <AdminNavbar />
+        <Footer />
+    </>
   )
 }
 

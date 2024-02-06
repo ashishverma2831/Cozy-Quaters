@@ -1,8 +1,13 @@
 import React from 'react'
+import AdminNavbar from './AdminNavbar'
+import Footer from '../components/Footer'
 
 const ViewUsers = () => {
   return (
-    <div>ViewUsers</div>
+    <>
+        <AdminNavbar />
+        <Footer />
+    </>
   )
 }
 
