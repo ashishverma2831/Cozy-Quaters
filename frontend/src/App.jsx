@@ -15,6 +15,10 @@ import AddRoom from './components/AddRoom'
 import BrowseRoom from './pages/BrowseRoom'
 import AdminLogin from './admin/AdminLogin'
 import AdminHome from './admin/AdminHome'
+import ViewContacts from './admin/ViewContacts'
+import ViewFeedbacks from './admin/ViewFeedbacks'
+import ViewRooms from './admin/ViewRooms'
+import ViewUsers from './admin/ViewUsers'
 
 
 const App = () => {
@@ -36,6 +40,10 @@ const App = () => {
             <Route path="/cities/:city" element={<BrowseRoom />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin-home" element={<AdminHome />} />
+            <Route path="/view-contacts" element={<ViewContacts />} />
+            <Route path="/view-feedbacks" element={<ViewFeedbacks />} />
+            <Route path="/view-rooms" element={<ViewRooms />} />
+            <Route path="/view-users" element={<ViewUsers />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           </AppProvider>

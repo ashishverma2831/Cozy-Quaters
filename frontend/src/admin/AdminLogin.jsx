@@ -1,4 +1,5 @@
 import { useFormik } from 'formik'
+import { enqueueSnackbar } from 'notistack';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -16,9 +17,11 @@ const AdminLogin = () => {
             // console.log(email, password);
             if(email==='ashishverma2831@gmail.com' && password==='admin'){
                 navigate('/admin-home');
+                enqueueSnackbar('Login in successfully', { variant: 'success' })
             }
             else{
-                alert('Invalid Credentials');
+                // alert('Invalid Credentials');
+                enqueueSnackbar('Invalid Credentials', { variant: 'error' })
             }
         }
     })

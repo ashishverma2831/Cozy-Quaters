@@ -19,13 +19,13 @@ const Footer = () => {
                 <p className='text-lg font-semibold pb-2 md:py-5'>Helpful Links</p>
                 <div>
                   <ul className='flex gap-y-2 flex-wrap'>
-                    <li className='w-1/2 hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer '>Login</a></li>
-                    <li className=' w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>About</a></li>
-                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Register</a></li>
-                    <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Subscription</a></li>
-                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Contact Us</a></li>
-                    <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Feedback</a></li>
-                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><a className='hover:underline hover:cursor-pointer'>Privacy Policy</a></li>
+                    <li className='w-1/2 hover:translate-x-1  hover:duration-500 duration-500'><Link to='/login' className='hover:underline hover:cursor-pointer '>Login</Link></li>
+                    <li className=' w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='/about' className='hover:underline hover:cursor-pointer'>About</Link></li>
+                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='/register' className='hover:underline hover:cursor-pointer'>Register</Link></li>
+                    <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><Link to='#' className='hover:underline hover:cursor-pointer'>Subscription</Link></li>
+                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='/contact' className='hover:underline hover:cursor-pointer'>Contact Us</Link></li>
+                    <li className='w-1/2   hover:translate-x-1 hover:duration-500 duration-500'><Link to='/feedback' className='hover:underline hover:cursor-pointer'>Feedback</Link></li>
+                    <li className='w-1/2  hover:translate-x-1  hover:duration-500 duration-500'><Link to='#' className='hover:underline hover:cursor-pointer'>Privacy Policy</Link></li>
                   </ul>
                 </div>
             </div>
