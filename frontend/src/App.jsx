@@ -12,6 +12,7 @@ import ErrorPage from './pages/ErrorPage'
 import ForgetPassword from './pages/ForgetPassword'
 import { AppProvider } from './AppContext'
 import AddRoom from './components/AddRoom'
+import BrowseRoom from './pages/BrowseRoom'
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/forget-password" element={<ForgetPassword />} />
             <Route path="/add-room" element={<AddRoom />} />
+            <Route path="/cities/:city" element={<BrowseRoom />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           </AppProvider>

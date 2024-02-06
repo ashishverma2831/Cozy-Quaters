@@ -48,4 +48,4 @@ router.get('/cities/:city',(req,res)=>{
     });
 })
 
-module.exports = router
+module.exports = router 
