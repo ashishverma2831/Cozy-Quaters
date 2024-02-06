@@ -13,6 +13,7 @@ import ForgetPassword from './pages/ForgetPassword'
 import { AppProvider } from './AppContext'
 import AddRoom from './components/AddRoom'
 import BrowseRoom from './pages/BrowseRoom'
+import AdminLogin from './admin/AdminLogin'
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/forget-password" element={<ForgetPassword />} />
             <Route path="/add-room" element={<AddRoom />} />
             <Route path="/cities/:city" element={<BrowseRoom />} />
+            <Route path="/admin" element={<AdminLogin />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           </AppProvider>
