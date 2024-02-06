@@ -14,4 +14,14 @@ router.post('/add',(req,res)=>{
     });
 })
 
+router.get('/all',(req,res)=>{
+    Contact.find()
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.json(err);
+    });
+})
+
 module.exports = router
