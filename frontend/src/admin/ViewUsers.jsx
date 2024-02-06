@@ -17,6 +17,22 @@ const ViewUsers = () => {
     useEffect(() => {  
         fetchUsers();
     }, []);
+
+    const deleteUser = async (id) => {
+        try {
+            const res = await fetch(`http://localhost:5000/user/delete/${id}`,{
+                method:'DELETE'
+            });
+            console.log(res.status);
+            if(res.status === 200){
+              enqueueSnackbar('User Deleted Successfully', { variant: 'success' });
+              fetchUsers();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
   return (
     <>
         <AdminNavbar />
@@ -55,7 +71,7 @@ const ViewUsers = () => {
           >
             Edit
           </a>
-          <button className='mx-2'><i className="fa-solid fa-trash text-red-700"></i></button>
+          <button className='mx-2' onClick={()=>{deleteUser(user._id)}}><i className="fa-solid fa-trash text-red-700"></i></button>
         </td>
       </tr>
             )

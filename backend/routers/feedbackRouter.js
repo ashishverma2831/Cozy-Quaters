@@ -14,4 +14,14 @@ router.post('/add',(req,res)=>{
     });
 })
 
+router.get('/all',(req,res)=>{
+    Feedback.find()
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.error(err);
+        res.json(err);
+    });
+})
+
 module.exports = router
