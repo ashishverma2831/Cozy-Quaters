@@ -48,4 +48,14 @@ router.get('/cities/:city',(req,res)=>{
     });
 })
 
+router.get('/all',(req,res)=>{
+    Model.find()
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
 module.exports = router 
