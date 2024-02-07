@@ -14,6 +14,17 @@ router.post('/add',(req,res)=>{
     });
 })
 
+router.delete('/delete/:id',(req,res)=>{
+    console.log(req.params.id);
+    Feedback.findByIdAndDelete(req.params.id)
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.error(err);
+        res.json(err);
+    });
+})
+
 router.get('/all',(req,res)=>{
     Feedback.find()
     .then((result) => {

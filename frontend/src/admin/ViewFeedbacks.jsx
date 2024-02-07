@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AdminNavbar from './AdminNavbar'
 import Footer from '../components/Footer'
+import { Link } from 'react-router-dom';
 
 const ViewFeedbacks = () => {
 
@@ -17,6 +18,19 @@ const ViewFeedbacks = () => {
     useEffect(()=>{
         fetchFeedbacks();
     },[])
+
+    const deleteFeedback = async (id)=>{
+        try {
+            const res = await fetch('http://localhost:5000/feedback/delete/'+id,{
+                method:'DELETE'
+            });
+            if(res.status === 200){
+                fetchFeedbacks();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
   return (
     <>
@@ -38,6 +52,9 @@ const ViewFeedbacks = () => {
         <th scope="col" className="px-6 py-3">
             Message
         </th>
+        <th scope="col" className="px-6 py-3">
+            Delete Feedback
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -49,6 +66,9 @@ const ViewFeedbacks = () => {
         <td className="px-6 py-4">{feedback.email}</td>
         <td className="px-6 py-4">{feedback.rating}</td>
         <td className="px-6 py-4">{feedback.message}</td>
+        <td className="px-6 py-4">
+        <Link className='mx-2' onClick={()=>{deleteFeedback(feedback._id)}}><i className="fa-solid fa-trash text-red-700"></i></Link>
+        </td>
       </tr>
             )
         })
