@@ -38,8 +38,8 @@ router.post('/authenticate',(req,res)=>{
 })
 
 router.get('/cities/:city',(req,res)=>{
-    console.log(req.params.city);
-    Model.find({city:req.params.city})
+    console.log(req.params.address);
+    Model.find({address:req.params.city})
     .then((result) => {
         res.json(result);
     }).catch((err) => {
@@ -58,9 +58,19 @@ router.get('/all',(req,res)=>{
     });
 })
 
-router.get('/delete/:id',(req,res)=>{
+router.delete('/delete/:id',(req,res)=>{
+    console.log(req.body);
+    Model.findByIdAndDelete(req.params.id,{new:true})
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+router.put('/update/:id',(req,res)=>{
     console.log(req.params.id);
-    Model.findByIdAndDelete(req.params.id)
+    Model.findByIdAndUpdate(req.params.id,req.body,{new:true})
     .then((result) => {
         res.json(result);
     }).catch((err) => {
