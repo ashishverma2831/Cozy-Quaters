@@ -3,7 +3,7 @@ import './ErrorPage.css'
 
 const ErrorPage = () => {
   return (
-    <>
+    <div className='h-[100vh] bg-red-200 ' >
        <div className="wrapper max-w-screen-md mx-auto">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
     <title>404</title>
@@ -438,8 +438,8 @@ const ErrorPage = () => {
     </g>
   </svg>
 </div>
-
-    </>
+<p className='font-extrabold text-4xl text-center text-purple-900 '>Page Not Found</p>
+    </div>
   )
 }
 
