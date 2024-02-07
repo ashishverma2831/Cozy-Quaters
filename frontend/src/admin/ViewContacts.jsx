@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AdminNavbar from './AdminNavbar'
 import Footer from '../components/Footer'
+import { Link } from 'react-router-dom';
 
 const ViewContacts = () => {
 
@@ -18,6 +19,19 @@ const ViewContacts = () => {
     useEffect(()=>{
         fetchContacts();
     },[])
+
+    const deleteContact = async (id)=>{
+      try {
+        const res = await fetch('http://localhost:5000/contact/delete/'+id,{
+          method:'DELETE'
+        });
+        if(res.status === 200){
+          fetchContacts();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   return (
     <>
         <AdminNavbar />
@@ -35,6 +49,9 @@ const ViewContacts = () => {
         <th scope="col" className="px-6 py-3">
             Message
         </th>
+        <th scope="col" className="px-6 py-3">
+            Delete Contact
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -45,6 +62,9 @@ const ViewContacts = () => {
         <td className="px-6 py-4">{contact.email}</td>
         <td className="px-6 py-4">{contact.subject}</td>
         <td className="px-6 py-4">{contact.message}</td>
+        <td className="px-6 py-4">
+        <Link className='mx-2' onClick={()=>{deleteContact(contact._id)}}><i className="fa-solid fa-trash text-red-700"></i></Link>
+        </td>
       </tr>
             )
         })
