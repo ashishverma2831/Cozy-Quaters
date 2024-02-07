@@ -17,7 +17,7 @@ const AdminLogin = () => {
             // console.log(email, password);
             if(email==='ashishverma2831@gmail.com' && password==='admin'){
                 navigate('/admin-home');
-                enqueueSnackbar('Login in successfully', { variant: 'success' })
+                enqueueSnackbar('Admin Login in successfully', { variant: 'success' })
             }
             else{
                 // alert('Invalid Credentials');

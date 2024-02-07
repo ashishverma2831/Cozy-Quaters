@@ -1,7 +1,16 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { enqueueSnackbar } from "notistack";
 
 const AdminNavbar = () => {
+
+    const navigate = useNavigate();
+    const adminLogout = ()=>{
+        sessionStorage.removeItem('admin');
+        navigate('/admin');
+        enqueueSnackbar('Admin Logged out successfully',{variant:'success'})
+    }
+
     return (
         <>
             <nav className="border-gray-200">
@@ -86,6 +95,7 @@ const AdminNavbar = () => {
                             </li>
                         </ul>
                     </div>
+                        <button onClick={()=>{adminLogout()}} type='submit' className='px-4 py-2 bg-red-700 hover:bg-red-600 rounded text-white'>Logout</button>
 
                     {/* drawer init and show */}
                     <div>
