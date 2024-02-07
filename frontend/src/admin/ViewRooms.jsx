@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import AdminNavbar from './AdminNavbar'
 import Footer from '../components/Footer'
+import { Link } from 'react-router-dom';
 
 const ViewRooms = () => {
 
@@ -17,6 +18,19 @@ const ViewRooms = () => {
     useState(()=>{
         fetchRooms();
     },[])
+
+    const deleteRoom = async (id)=>{
+      try {
+        const res = await fetch('http://localhost:5000/add-room/delete/'+id,{
+          method:'DELETE'
+        });
+        if(res.status === 200){
+          fetchRooms();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   return (
     <>
         <AdminNavbar />
@@ -34,6 +48,7 @@ const ViewRooms = () => {
         <th scope="col" className="px-6 py-3">Room Name</th>
         <th scope="col" className="px-6 py-3">Description</th>
         <th scope="col" className="px-6 py-3">Address</th>
+        <th scope="col" className="px-6 py-3">Delete Rooms</th>
       </tr>
     </thead>
     <tbody>
@@ -50,6 +65,9 @@ const ViewRooms = () => {
         <td className="px-6 py-4">{room.roomname}</td>
         <td className="px-6 py-4">{room.description}</td>
         <td className="px-6 py-4">{room.address}</td>
+        <td className="px-6 py-4">
+        <Link className='mx-2' onClick={()=>{deleteRoom(room._id)}}><i className="fa-solid fa-trash text-red-700"></i></Link>
+        </td>
       </tr>
             )
         })
