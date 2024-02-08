@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import RoomDetails from '../components/RoomDetails';
 
 const BrowseRoom = () => {
 
@@ -17,8 +18,9 @@ const BrowseRoom = () => {
   return (
     <>
       <Navbar />
-      <p>hrloo</p>
-      <p id='content'>cdsc</p>
+      {/* <p>hrloo</p>
+      <p id='content'>cdsc</p> */}
+      <RoomDetails />
       <Footer />
     </>
   )
