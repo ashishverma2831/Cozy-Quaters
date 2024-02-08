@@ -4,23 +4,27 @@ import Footer from './Footer'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
+
+// const RequestFormSchema = Yup.object({
+//     name: Yup.string().required('Name is required'),
+//     number: Yup.number().required('Number is required').min(10, 'Number should be 10 digits').max(10, 'Number should be 10 digits'),
+//     duration: Yup.string().required('Duration is required')
+// })
+
+
 const RoomDetails = () => {
 
-    const roomDetails = useFormik({
-        initialValues: {
-            name: '',
-            number: '',
-            duration: ''
-        },
-        onSubmit :(values) => {
-            console.log(values)
-        },
-        validationSchema: Yup.object({
-            name: Yup.string().required('Name is required'),
-            number: Yup.number().required('Number is required').min(10, 'Number should be 10 digits').max(10, 'Number should be 10 digits'),
-            duration: Yup.string().required('Duration is required')
-        })
-    })
+    // const roomDetailsForm = useFormik({
+    //     initialValues: {
+    //         name: '',
+    //         number: '',
+    //         // duration: ''
+    //     },
+    //     onSubmit :(values) => {
+    //         console.log(values)
+    //     },
+    //     validationSchema: RequestFormSchema
+    // })
 
   return (
     <>
@@ -34,7 +38,7 @@ const RoomDetails = () => {
                     <p className='text-lg font-normal'><i className="fa-solid fa-location-dot mr-1"></i> location hbhjvvk</p>
                 </div>
                 <div className='px-4'>
-                    <p className='text-3xl font-extrabold'>₹ 7800</p>
+                    <p className='text-3xl font-semibold text-[#065c77]'>₹ 7800</p>
                 </div>
             </div>
             <div className='flex flex-col md:flex-row'>
@@ -154,30 +158,30 @@ const RoomDetails = () => {
                       <p className='font-semibold text-sm px-4'>shri balaji pg available for boys in govindpuram ghaziabad. It'svery close to metro and othe market community.</p>
                     </div>
                 </div>
-                <div className='flex-1 py-5 bg-white'>
-                    <form className='shadow-lg p-5 rounded' onSubmit={roomDetails.handleSubmit}>
+                {/* <div className='flex-1 py-5 bg-white'>
+                    <form className='shadow-lg p-5 rounded' onSubmit={roomDetailsForm.handleSubmit}>
                         <p className='font-bold text-xl text-[#065c77] my-2'>Owner name</p>
-                        <input type="text" className='w-full p-2 border border-gray-300 rounded-lg outline-none' placeholder='Your Name' required name='name' onChange={roomDetails.handleChange} value={roomDetails.values.name}/>
-                        <input type='number' placeholder="Enter Your Number" required className='w-full p-2 border border-gray-300 rounded-lg mt-4 outline-none' name='number' onChange={roomDetails.handleChange} value={roomDetails.values.number}/>
-                        {/* <div className='my-4'>
+                        <input type="text" className='w-full p-2 border border-gray-300 rounded-lg outline-none' placeholder='Your Name' id='name' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.name}/>
+                        <input type='number' placeholder="Enter Your Number" className='w-full p-2 border border-gray-300 rounded-lg mt-4 outline-none' id='number' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.number}/>
+                        <div className='my-4'>
                             <p className='text-semibold text-lg mb-2'>How soon do you plan to move?</p>
                             
 <div class="flex items-center mb-1">
     <input id="default-radio-1" type="radio" value="within 7 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetails.handleChange} />
-    <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900">Within 7 days</label>
+    <label htmlFor="default-radio-1" class="ms-2 text-sm font-medium text-gray-900">Within 7 days</label>
 </div>
 <div class="flex items-center mb-1">
     <input checked id="default-radio-2" type="radio" value="7-14 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetails.handleChange} />
-    <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 ">7 days - 14 days</label>
+    <label htmlFor="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 ">7 days - 14 days</label>
 </div>
 <div class="flex items-center mb-2">
     <input checked id="default-radio-3" type="radio" value="more than 14 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetails.handleChange} />
-    <label for="default-radio-3" class="ms-2 text-sm font-medium text-gray-900 ">More than 14 days</label>
+    <label htmlFor="default-radio-3" class="ms-2 text-sm font-medium text-gray-900 ">More than 14 days</label>
 </div>
-                        </div> */}
+                        </div>
                         <button type='submit' className='mt-4 w-full text-white bg-[#065c77] rounded py-2'>Request a Callback</button>
                     </form>
-                </div>
+                </div> */}
             </div>
         </section>
         {/* <Footer /> */}
