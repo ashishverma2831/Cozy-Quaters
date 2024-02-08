@@ -69,6 +69,17 @@ router.delete('/delete/:id',(req,res)=>{
     });
 })
 
+router.get('/getbyid/:id',(req,res)=>{
+    console.log(req.params.id);
+    Model.findById(req.params.id)
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
 router.put('/update/:id',(req,res)=>{
     console.log(req.params.id);
     Model.findByIdAndUpdate(req.params.id,req.body,{new:true})
@@ -80,15 +91,5 @@ router.put('/update/:id',(req,res)=>{
     });
 })
 
-router.get('/update/:id',(req,res)=>{
-    console.log(req.params.id);
-    Model.findByIdAndUpdate(req.params.id,req.body,{new:true})
-    .then((result) => {
-        res.json(result);
-    }).catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-})
 
 module.exports = router 

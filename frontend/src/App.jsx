@@ -19,6 +19,7 @@ import ViewContacts from './admin/ViewContacts'
 import ViewFeedbacks from './admin/ViewFeedbacks'
 import ViewRooms from './admin/ViewRooms'
 import ViewUsers from './admin/ViewUsers'
+import UpdateProfile from './pages/UpdateProfile'
 
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="/view-feedbacks" element={<ViewFeedbacks />} />
             <Route path="/view-rooms" element={<ViewRooms />} />
             <Route path="/view-users" element={<ViewUsers />} />
+            <Route path="/update-profile" element={<UpdateProfile />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           </AppProvider>
