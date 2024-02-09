@@ -4,20 +4,21 @@ import Navbar from '../components/Navbar';
 import RoomDetails from '../components/RoomDetails';
 import { Link, useParams } from 'react-router-dom';
 import rooms from '../components/roomData';
+import { isEmptyArray } from 'formik';
 
-const BrowseRoom = () => {
+const BrowseRoom = ({cityRoomList}) => {
 
   const {city} = useParams();
   console.log(city);
+  console.log(cityRoomList);
+  // const [roomList, setRoomList] = useState(rooms);
 
-  const [roomList, setRoomList] = useState(rooms);
-
-  const getRooms = ()=>{
-    const filteredRooms = rooms.filter((room)=>{
-      return room.location.toLowerCase().includes(city.toLowerCase())
-    })
-    setRoomList(filteredRooms);
-  }
+  // const getRooms = ()=>{
+  //   const filteredRooms = rooms.filter((room)=>{
+  //     return room.location.toLowerCase().includes(city.toLowerCase())
+  //   })
+  //   setRoomList(filteredRooms);
+  // }
 
   return (
     <>
@@ -26,8 +27,8 @@ const BrowseRoom = () => {
 
       <section className='my-10 mx-auto max-w-screen-xl flex flex-wrap gap-8 justify-center'>
       {
-        roomList.length===0?<p className='text-center font-semibold text-2xl'>No results found</p>:
-        roomList.map((room)=>{
+        cityRoomList.length===0?<p className='text-center font-semibold text-2xl'>No results found</p>:
+        cityRoomList.map((room)=>{
           return (
                 <div className='my-4' key={room}>
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
@@ -48,7 +49,6 @@ const BrowseRoom = () => {
                       </div>
                       <div className='flex mt-4 justify-between'>
                         <div><i className="fa-solid fa-user"></i> {room.ownerName} </div>
-                        {/* <div><i className="fa-regular fa-calendar-days"></i> {room.uploaded} </div> */}
                       </div>
                     </div>
                   </div>
