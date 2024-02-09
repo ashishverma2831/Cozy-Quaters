@@ -70,7 +70,7 @@ router.delete('/delete/:id',(req,res)=>{
 })
 
 router.get('/getbyid/:id',(req,res)=>{
-    console.log(req.params.id);
+    console.log("hello "+req.params.id);
     Model.findById(req.params.id)
     .then((result) => {
         res.json(result);

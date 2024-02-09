@@ -11,6 +11,7 @@ const UpdateProfile = () => {
     const [userData, setUserData] = useState(null);
     const navigate = useNavigate();
 
+    console.log(id);
     const getUserData = async ()=>{
         const res = await fetch('http://localhost:5000/user/getbyid/'+id);
         console.log(res.status);
@@ -70,7 +71,7 @@ const UpdateProfile = () => {
                     name='name'
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                     placeholder="Enter your name"
-                    required="true"
+                    required={true}
                     onChange={registerForm.handleChange}
                     value={registerForm.values.name}
                   />
@@ -89,7 +90,7 @@ const UpdateProfile = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:border-primary-600 block w-full p-2.5"
                     placeholder="name@company.com"
-                    required="true"
+                    required={true}
                     onChange={registerForm.handleChange}
                     value={registerForm.values.email}
                   />
@@ -109,7 +110,7 @@ const UpdateProfile = () => {
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:border-primary-600 block w-full p-2.5 "
-                    required="true"
+                    required={true}
                     onChange={registerForm.handleChange}
                     value={registerForm.values.password}
                   />
@@ -139,20 +140,10 @@ const UpdateProfile = () => {
                 </div>
                 <button
                   type="submit"
-                  disabled={registerForm.setSubmitting}
                   className="w-full text-white text-lg bg-gray-600 hover:bg-gray-700 focus:outline-none font-normal rounded-lg px-5 py-2.5 text-center "
                 >
                   Update
                 </button>
-                {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Already have an account?{" "}
-                  <Link
-                    to="/login"
-                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
-                    Login here
-                  </Link>
-                </p> */}
               </form>
             </div>
           </div>

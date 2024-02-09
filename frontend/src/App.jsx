@@ -45,7 +45,7 @@ const App = () => {
             <Route path="/view-feedbacks" element={<ViewFeedbacks />} />
             <Route path="/view-rooms" element={<ViewRooms />} />
             <Route path="/view-users" element={<ViewUsers />} />
-            <Route path="/update-profile" element={<UpdateProfile />} />
+            <Route path="/update-profile/:id" element={<UpdateProfile />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           </AppProvider>
