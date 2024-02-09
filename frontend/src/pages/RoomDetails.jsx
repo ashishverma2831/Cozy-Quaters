@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { useParams } from 'react-router-dom'
+import rooms from '../components/roomData.js';
 
 
 // const RequestFormSchema = Yup.object({
@@ -13,6 +15,12 @@ import * as Yup from 'yup'
 
 
 const RoomDetails = () => {
+
+   const {id} = useParams();
+   console.log(id);
+
+   const [singleRoom, setSingleRoom] = useState(rooms)
+   console.log(singleRoom);
 
     // const roomDetailsForm = useFormik({
     //     initialValues: {
@@ -25,6 +33,19 @@ const RoomDetails = () => {
     //     },
     //     validationSchema: RequestFormSchema
     // })
+
+    const getRoomDetails = (id)=>{
+        // console.log(id);
+        const oneRooms = rooms.filter((room)=>{
+            return room.id === id
+        })
+        console.log(oneRooms);
+        setSingleRoom(oneRooms);
+    }
+
+    useEffect(()=>{
+        getRoomDetails(id);
+    },[])
 
   return (
     <>
