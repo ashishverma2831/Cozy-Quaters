@@ -31,7 +31,7 @@ const BrowseRoom = () => {
         roomList.length===0?<p className='text-center font-semibold text-2xl'>No results found</p>:
           roomList.map((room)=>{
           return (
-                <div className='my-4' key={room}>
+                <Link to={room.id} className='my-4' key={room.id}>
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
                     <Link href="#">
                       <img className="rounded-t-lg w-full h-[324px]" src={room.image} alt="room photo" />
@@ -53,7 +53,7 @@ const BrowseRoom = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
           )
         })
       }

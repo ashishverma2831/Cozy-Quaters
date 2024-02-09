@@ -1,5 +1,6 @@
 const rooms = [
     {
+        id:1,
         title:'prayaas girls hostel',
         location:'Dayal Bagh, Agra',
         accomodationFor:'Girls',
@@ -10,6 +11,7 @@ const rooms = [
         uploaded:'4 months ago'
     },
     {
+        id:2,
         title:'jai villa',
         location:'Tora, Agra',
         accomodationFor:'Boys and Girls',
@@ -20,6 +22,7 @@ const rooms = [
         uploaded:'10 months ago'
     },
     {
+        id:3,
         title:'Akash inn',
         location:'Sikandra, Agra',
         accomodationFor:'Boys',
@@ -30,6 +33,7 @@ const rooms = [
         uploaded:'11 months ago'
     },
     {
+        id:4,
         title:'Friends guest house and hostel',
         location:'Tejganj, Agra',
         accomodationFor:'Boys and Girls',
@@ -40,6 +44,7 @@ const rooms = [
         uploaded:'3 months ago'
     },
     {
+        id:5,
         title:'celestia girls pg',
         location:'Navrangpura, Ahmedabad',
         accomodationFor:'Girls',
@@ -50,6 +55,7 @@ const rooms = [
         uploaded:'6 months ago'
     },
     {
+        id:6,
         title:'Sanskaar pg and hostel',
         location:'Sardar patel nagar, Ahmedabad',
         accomodationFor:'Boys and Girls',
@@ -60,6 +66,7 @@ const rooms = [
         uploaded:'6 months ago'
     },
     {
+        id:7,
         title:'Royal pg',
         location:'Usmanpura, Ahmedabad',
         accomodationFor:'Boys and Girls',
@@ -70,6 +77,7 @@ const rooms = [
         uploaded:'6 months ago'
     },  
     {
+        id:8,
         title:'dozo iris premium girls pg',
         location:'Sector 1 hsr layout, Bangalore',
         accomodationFor:'Girls',
@@ -80,6 +88,7 @@ const rooms = [
         uploaded:'3 months ago'
     },
     {
+        id:9,
         title:'Nr home stays pg for boys',
         location:'9th main road, Bangalore',
         accomodationFor:'Boys',
@@ -89,7 +98,8 @@ const rooms = [
         ownerName:'Nr Home Stays pg',
         uploaded:'3 months ago'
     },
-    {
+    {   
+        id:10,
         title:'Gopik Girls pg',
         location:'Izatnagar, Bareilly',
         accomodationFor:'Girls',
