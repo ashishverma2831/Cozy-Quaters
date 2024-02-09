@@ -37,16 +37,16 @@ router.post('/authenticate',(req,res)=>{
     });
 })
 
-router.get('/cities/:city',(req,res)=>{
-    console.log(req.params.address);
-    Model.find({address:req.params.city})
-    .then((result) => {
-        res.json(result);
-    }).catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-})
+// router.get('/cities/:city',(req,res)=>{
+//     console.log(req.params.address);
+//     Model.find({address:req.params.city})
+//     .then((result) => {
+//         res.json(result);
+//     }).catch((err) => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// })
 
 router.get('/all',(req,res)=>{
     Model.find()
