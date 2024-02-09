@@ -17,7 +17,7 @@ const BrowseRoom = () => {
     setRoomList(filteredRooms);
     console.log(filteredRooms);
   }
-  console.log(roomList);
+  // console.log(roomList);
 
   useEffect(()=>{
     getRooms(city);
@@ -31,13 +31,13 @@ const BrowseRoom = () => {
         roomList.length===0?<p className='text-center font-semibold text-2xl'>No results found</p>:
           roomList.map((room)=>{
           return (
-                <Link to={room.id} className='my-4' key={room.id}>
+                <Link to={'/cities/'+city+'/'+room.id} className='my-4' key={room.id}>
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
-                    <Link href="#">
+                    <div>
                       <img className="rounded-t-lg w-full h-[324px]" src={room.image} alt="room photo" />
-                    </Link>
+                    </div>
                     <div className="p-5">
-                      <Link href="#">
+                      <Link>
                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                           {room.title.toUpperCase()} 
                         </h5>
