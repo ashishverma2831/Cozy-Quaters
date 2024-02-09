@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from './Navbar'
-import Footer from './Footer'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
@@ -28,7 +28,7 @@ const RoomDetails = () => {
 
   return (
     <>
-        {/* <Navbar /> */}
+        <Navbar />
         <section className=' mx-auto max-w-screen-lg my-10'>
             <div className='flex p-2 justify-between items-center'>
                 <div className='px-4'>
@@ -184,7 +184,7 @@ const RoomDetails = () => {
                 </div> */}
             </div>
         </section>
-        {/* <Footer /> */}
+        <Footer />
     </>
   )
 }
