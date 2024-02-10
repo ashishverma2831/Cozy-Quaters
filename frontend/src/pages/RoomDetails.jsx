@@ -7,41 +7,40 @@ import { useParams } from 'react-router-dom'
 import rooms from '../components/roomData.js';
 
 
-// const RequestFormSchema = Yup.object({
-//     name: Yup.string().required('Name is required'),
-//     number: Yup.number().required('Number is required').min(10, 'Number should be 10 digits').max(10, 'Number should be 10 digits'),
-//     duration: Yup.string().required('Duration is required')
-// })
+const RequestFormSchema = Yup.object({
+    name: Yup.string().required('Name is required'),
+    number: Yup.number().required('Number is required').min(10, 'Number should be 10 digits').max(10, 'Number should be 10 digits'),
+    duration: Yup.string().required('Duration is required')
+})
 
 
 const RoomDetails = () => {
 
    const {id} = useParams();
    console.log(id);
-
-   const [singleRoom, setSingleRoom] = useState(rooms)
-   console.log(singleRoom);
-
-    // const roomDetailsForm = useFormik({
-    //     initialValues: {
-    //         name: '',
-    //         number: '',
-    //         // duration: ''
-    //     },
-    //     onSubmit :(values) => {
-    //         console.log(values)
-    //     },
-    //     validationSchema: RequestFormSchema
-    // })
-
-    const getRoomDetails = (id)=>{
-        // console.log(id);
-        const oneRooms = rooms.filter((room)=>{
-            return room.id === id
-        })
-        console.log(oneRooms);
-        setSingleRoom(oneRooms);
+    const [room, setRoom] = useState(rooms);
+    console.log(room);
+    const getRoomDetails = (id) => {
+        const room = rooms.filter((room)=>{
+          return room.id === parseInt(id);
+        });
+        console.log(id);
+        console.log(room[0]);
+        setRoom(room[0]);
     }
+
+    const roomDetailsForm = useFormik({
+        initialValues: {
+            name: '',
+            number: '',
+            duration: ''
+        },
+        onSubmit :(values) => {
+            console.log(values)
+        },
+        validationSchema: RequestFormSchema
+    })
+
 
     useEffect(()=>{
         getRoomDetails(id);
@@ -53,13 +52,13 @@ const RoomDetails = () => {
         <section className=' mx-auto max-w-screen-lg my-10'>
             <div className='flex p-2 justify-between items-center'>
                 <div className='px-4'>
-                    <p className='text-xl font-semibold'>Shri Balaji pg for boys in govindpuram,ghaziabad
-                    <span className="mx-2 text-white bg-[#065c77] text-md font-medium px-4 py-1.5 rounded">boys</span>
+                    <p className='text-xl font-semibold'>{room.title}
+                      <span className="mx-2 text-white bg-[#065c77] text-md font-medium px-4 py-1.5 rounded"> {room.accomodationFor} </span>
                     </p>
-                    <p className='text-lg font-normal'><i className="fa-solid fa-location-dot mr-1"></i> location hbhjvvk</p>
+                    <p className='text-lg font-normal'><i className="fa-solid fa-location-dot mr-1"></i> {room.location} </p>
                 </div>
                 <div className='px-4'>
-                    <p className='text-3xl font-semibold text-[#065c77]'>₹ 7800</p>
+                    <p className='text-3xl font-semibold text-[#065c77]'>₹ {room.price}</p>
                 </div>
             </div>
             <div className='flex flex-col md:flex-row'>
@@ -169,17 +168,17 @@ const RoomDetails = () => {
                     <div>
                       <p className="text-white my-4 bg-[#065c77] text-md font-medium px-4 py-1.5 rounded">Details</p>
                         <div>
-                            <div className='p-2 flex border-b'><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Accomodation for :</p><p>Boys and Girls</p></div>
-                            <div className='p-2 flex border-b'><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Suitable for :</p><p>Students</p></div>
-                            <div className='p-2 flex '><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Location :</p><p>asfnasfkasnfkanka</p></div>
+                            <div className='p-2 flex border-b'><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Accomodation for :</p><p> {room.accomodationFor} </p></div>
+                            <div className='p-2 flex border-b'><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Suitable for :</p><p> {room.suitableFor} </p></div>
+                            <div className='p-2 flex '><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Location :</p><p> {room.location} </p></div>
                         </div>
                     </div>
                     <div>
                       <p className="text-white my-4 bg-[#065c77] text-md font-medium px-4 py-1.5 rounded">Description</p>
-                      <p className='font-semibold text-sm px-4'>shri balaji pg available for boys in govindpuram ghaziabad. It'svery close to metro and othe market community.</p>
+                      <p className='font-semibold text-sm px-4'>{room.description}</p>
                     </div>
                 </div>
-                {/* <div className='flex-1 py-5 bg-white'>
+                <div className='flex-1 py-5 bg-white'>
                     <form className='shadow-lg p-5 rounded' onSubmit={roomDetailsForm.handleSubmit}>
                         <p className='font-bold text-xl text-[#065c77] my-2'>Owner name</p>
                         <input type="text" className='w-full p-2 border border-gray-300 rounded-lg outline-none' placeholder='Your Name' id='name' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.name}/>
@@ -202,7 +201,7 @@ const RoomDetails = () => {
                         </div>
                         <button type='submit' className='mt-4 w-full text-white bg-[#065c77] rounded py-2'>Request a Callback</button>
                     </form>
-                </div> */}
+                </div>
             </div>
         </section>
         <Footer />
