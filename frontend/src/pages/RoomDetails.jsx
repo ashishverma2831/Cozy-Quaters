@@ -178,7 +178,7 @@ const RoomDetails = () => {
                       <p className='font-semibold text-sm px-4'>{room.description}</p>
                     </div>
                 </div>
-                <div className='flex-1 py-5 bg-white'>
+                <div className='flex-1 py-5 bg-white mx-5'>
                     <form className='shadow-lg p-5 rounded' onSubmit={roomDetailsForm.handleSubmit}>
                         <p className='font-bold text-xl text-[#065c77] my-2'>Owner name</p>
                         <input type="text" className='w-full p-2 border border-gray-300 rounded-lg outline-none' placeholder='Your Name' id='name' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.name}/>
@@ -187,15 +187,15 @@ const RoomDetails = () => {
                             <p className='text-semibold text-lg mb-2'>How soon do you plan to move?</p>
                             
 <div class="flex items-center mb-1">
-    <input id="default-radio-1" type="radio" value="within 7 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetails.handleChange} />
+    <input id="default-radio-1" type="radio" value="within 7 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetailsForm.handleChange} />
     <label htmlFor="default-radio-1" class="ms-2 text-sm font-medium text-gray-900">Within 7 days</label>
 </div>
 <div class="flex items-center mb-1">
-    <input checked id="default-radio-2" type="radio" value="7-14 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetails.handleChange} />
+    <input checked id="default-radio-2" type="radio" value="7-14 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetailsForm.handleChange} />
     <label htmlFor="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 ">7 days - 14 days</label>
 </div>
 <div class="flex items-center mb-2">
-    <input checked id="default-radio-3" type="radio" value="more than 14 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetails.handleChange} />
+    <input checked id="default-radio-3" type="radio" value="more than 14 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetailsForm.handleChange} />
     <label htmlFor="default-radio-3" class="ms-2 text-sm font-medium text-gray-900 ">More than 14 days</label>
 </div>
                         </div>
