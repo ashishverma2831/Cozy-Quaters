@@ -29,6 +29,8 @@ const RoomDetails = () => {
     setRoom(room[0]);
   }
 
+  console.log(room.image);
+
   const roomDetailsForm = useFormik({
     initialValues: {
       name: '',
@@ -69,25 +71,25 @@ const RoomDetails = () => {
                 {/* Item 1 */}
                 <div className="hidden duration-700 ease-in-out" data-carousel-item="">
                   <img
-                    src={room.image}
+                    src={room.image[0]}
                     className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="..."
+                    alt="photo-1"
                   />
                 </div>
                 {/* Item 2 */}
                 <div className="hidden duration-700 ease-in-out" data-carousel-item="">
                   <img
-                    src="https://images.unsplash.com/photo-1705657309655-c18966db966d?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D"
+                    src={room.image[1]}
                     className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="..."
+                    alt="photo-2"
                   />
                 </div>
                 {/* Item 3 */}
                 <div className="hidden duration-700 ease-in-out" data-carousel-item="">
                   <img
-                    src="https://images.unsplash.com/photo-1706610740392-65f9186d1305?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D"
+                    src={room.image[2]}
                     className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="..."
+                    alt="photo-3"
                   />
                 </div>
               </div>
