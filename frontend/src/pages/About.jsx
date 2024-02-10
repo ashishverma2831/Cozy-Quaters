@@ -14,7 +14,7 @@ const About = () => {
       >
         <img
           className="object-cover md:w-1/2"
-          src="https://plus.unsplash.com/premium_photo-1700182582190-f44a4660cce5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://media.istockphoto.com/id/1281244663/vector/happy-tourists-choosing-hotel-and-booking-room-online.jpg?s=612x612&w=0&k=20&c=zoapw5nusmW8lcnoyKjvlhtfvReSBQE6m8bVWlHRdEE="
           alt=""
         />
         <div className="flex flex-col justify-between p-4 leading-normal">
