@@ -17,15 +17,15 @@ const RequestFormSchema = Yup.object({
 const RoomDetails = () => {
 
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const [room, setRoom] = useState(rooms);
-  console.log(room);
+  // console.log(room);
   const getRoomDetails = (id) => {
     const room = rooms.filter((room) => {
       return room.id === parseInt(id);
     });
-    console.log(id);
-    console.log(room[0]);
+    // console.log(id);
+    // console.log(room[0]);
     setRoom(room[0]);
   }
 

@@ -6,8 +6,11 @@ const rooms = [
         accomodationFor:'Girls',
         suitableFor:'Students and Working',
         price:3000,
-        image:['https://www.pgchoice.com/uploads/property/small/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp'],
+        image:['https://www.pgchoice.com/uploads/property/small/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+                'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+                'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Rajani Verma',
+        description:'Located in Dayal Bagh, Agra, Prayaas Girls Hostel is modern and spacious PG home is close to major educational commercial hubs in the area. This female PG offers all the comforts like Wi-Fi etc. The PG has strict adherence to hygiene standards and offers double, triple rooms. Please contact in case you are interested or queries. Looking forward to serving you.',
         uploaded:'4 months ago'
     },
     {
@@ -17,8 +20,11 @@ const rooms = [
         accomodationFor:'Boys and Girls',
         suitableFor:'Students and Working',
         price:5500,
-        image:['https://www.pgchoice.com/uploads/property/small/IMG_20210123_132451.webp'],
+        image:['https://www.pgchoice.com/uploads/property/small/IMG_20210123_132451.webp',
+        'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+        'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Amit Sengar',
+        description:'Located in Tora, Agra, Jai Villa is modern and spacious PG home is close to major educational commercial hubs in the area.',
         uploaded:'10 months ago'
     },
     {
@@ -28,9 +34,12 @@ const rooms = [
         accomodationFor:'Boys',
         suitableFor:'Students and Working',
         price:7500,
-        image:['https://www.pgchoice.com/uploads/property/small/aakash_inn_building_front__01.webp'],
+        image:['https://www.pgchoice.com/uploads/property/small/aakash_inn_building_front__01.webp'
+    ,'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+    'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Priyanshi Jain',
-        uploaded:'11 months ago'
+        uploaded:'11 months ago',
+        description:'Located in Sikandra, Agra, Akash Inn is modern and spacious PG home is close to major educational commercial hubs in the area.'
     },
     {
         id:4,
@@ -39,9 +48,12 @@ const rooms = [
         accomodationFor:'Boys and Girls',
         suitableFor:'Working',
         price:6500,
-        image:['https://www.pgchoice.com/uploads/property/small/PG_Agra.webp'],
+        image:['https://www.pgchoice.com/uploads/property/small/PG_Agra.webp',
+        'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+        'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Friends guest house',
-        uploaded:'3 months ago'
+        uploaded:'3 months ago',
+        description:'Located in Tejganj, Agra, Friends guest house and hostel is modern and spacious PG home is close to major educational commercial hubs in the area.'
     },
     {
         id:5,
@@ -50,9 +62,12 @@ const rooms = [
         accomodationFor:'Girls',
         suitableFor:'Students',
         price:9000,
-        image:['https://www.pgchoice.com/uploads/property/small/Celestia_girls_pg_Single_Room.webp'],
+        image:['https://www.pgchoice.com/uploads/property/small/Celestia_girls_pg_Single_Room.webp',
+        'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+        'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Celestia girls',
-        uploaded:'6 months ago'
+        uploaded:'6 months ago',
+        description:'Located in Navrangpura, Ahmedabad, Semi furnished attached bathroom with kitchen tile flooring located at near jp palace hotel behind pearls resort fatehabad Road agra.'  
     },
     {
         id:6,
@@ -61,9 +76,12 @@ const rooms = [
         accomodationFor:'Boys and Girls',
         suitableFor:'Working',
         price:7500,
-        image:['https://www.pgchoice.com/uploads/property/small/Sanskar_pg_and_hostel_9974097933_tworbed_sharing_room.webp'],
+        image:['https://www.pgchoice.com/uploads/property/small/Sanskar_pg_and_hostel_9974097933_tworbed_sharing_room.webp',
+        'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+        'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Sanskaar pg',
-        uploaded:'6 months ago'
+        uploaded:'6 months ago',
+        description:'Located in Sardar patel nagar, Ahmedabad, Sanskaar pg and hostel is modern and spacious PG home is close to major educational commercial hubs in the area.'
     },
     {
         id:7,
@@ -72,9 +90,12 @@ const rooms = [
         accomodationFor:'Boys and Girls',
         suitableFor:'Students',
         price:7000,
-        image:['https://www.pgchoice.com/uploads/property/small/Royal_pg_in_Usmanpura_9924835783_twobed_sharing_room.webp'],
+        image:['https://www.pgchoice.com/uploads/property/small/Royal_pg_in_Usmanpura_9924835783_twobed_sharing_room.webp',
+        'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+        'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Royal pg',
-        uploaded:'6 months ago'
+        uploaded:'6 months ago',
+        description:'Located in Usmanpura, Ahmedabad, Royal pg is modern and spacious PG home is close to major educational commercial hubs in the area.'
     },  
     {
         id:8,
@@ -83,9 +104,12 @@ const rooms = [
         accomodationFor:'Girls',
         suitableFor:'Students and Working',
         price:7500,
-        image:['https://www.pgchoice.com/uploads/property/small/Front2.jpeg'],
+        image:['https://www.pgchoice.com/uploads/property/small/Front2.jpeg',
+        'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+        'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Chetan pg',
-        uploaded:'3 months ago'
+        uploaded:'3 months ago',
+        description:'Located in Sector 1 hsr layout, Bangalore Semi furnished attached bathroom with kitchen tile flooring located at near jp palace hotel behind pearls resort Bangalore.'
     },
     {
         id:9,
@@ -94,9 +118,12 @@ const rooms = [
         accomodationFor:'Boys',
         suitableFor:'Students and Working',
         price:6000,
-        image:['https://www.pgchoice.com/uploads/property/small/IMG_20231019_113245.jpg'],
+        image:['https://www.pgchoice.com/uploads/property/small/IMG_20231019_113245.jpg',
+        'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+        'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Nr Home Stays pg',
-        uploaded:'3 months ago'
+        uploaded:'3 months ago',
+        description:'Located in 9th main road, Bangalore, Nr Semi furnished attached bathroom with kitchen tile flooring located at near jp palace hotel behind pearls resort Road Bangalore.'
     },
     {   
         id:10,
@@ -105,9 +132,12 @@ const rooms = [
         accomodationFor:'Girls',
         suitableFor:'Students and Working',
         price:7500,
-        image:['https://www.pgchoice.com/uploads/property/small/IMG-20231012-WA0010.jpg'],
+        image:['https://www.pgchoice.com/uploads/property/small/IMG-20231012-WA0010.jpg',
+        'https://www.pgchoice.com/uploads/property/medium/26e75a88-c4ec-4937-bf5b-e43ed379cdb71.webp',
+        'https://www.pgchoice.com/uploads/property/medium/6a8d1625-c0e1-473e-b81c-e962818b979a.webp'],
         ownerName:'Divya Khosla',
-        uploaded:'3 months ago'
+        uploaded:'3 months ago',
+        description:'Located in Izatnagar Bareilly, Semi furnished attached bathroom with kitchen tile flooring located at near jp palace hotel behind pearls resort.'
     },
 ]
 
