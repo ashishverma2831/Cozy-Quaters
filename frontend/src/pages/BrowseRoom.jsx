@@ -25,7 +25,7 @@ const BrowseRoom = () => {
   return (
     <>
       <Navbar />
-      <p className='text-center text-2xl font-semibold my-6'>Rooms in {city.toUpperCase()}</p>
+      <p className='text-center text-2xl font-semibold my-6 bg-sky-100 p-10'>Rooms in {city.toUpperCase()}</p>
       <section className='my-10 mx-auto max-w-screen-xl flex flex-wrap gap-8 justify-center'>
       {
         roomList.length===0?<p className='text-center font-semibold text-2xl'>No results found</p>:
