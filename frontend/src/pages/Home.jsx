@@ -36,9 +36,9 @@ const Home = () => {
           return (
                 <div className='my-4' key={room}>
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
-                    <Link href="#">
-                      <img className="rounded-t-lg w-full h-[324px]" src={room.image} alt="room photo" />
-                    </Link>
+                    <div>
+                      <img className="rounded-t-lg w-full h-[324px]" src={room.image[0]} alt="room photo" />
+                    </div>
                     <div className="p-5">
                       <Link href="#">
                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">

@@ -55,21 +55,21 @@ const RoomDetails = () => {
                     <p className='text-xl font-semibold'>{room.title}
                       <span className="mx-2 text-white bg-[#065c77] text-md font-medium px-4 py-1.5 rounded"> {room.accomodationFor} </span>
                     </p>
-                    <p className='text-lg font-normal'><i className="fa-solid fa-location-dot mr-1"></i> {room.location} </p>
+                    <p className='text-lg font-normal my-2'><i className="fa-solid fa-location-dot mr-1"></i> {room.location} </p>
                 </div>
                 <div className='px-4'>
                     <p className='text-3xl font-semibold text-[#065c77]'>₹ {room.price}</p>
                 </div>
             </div>
             <div className='flex flex-col md:flex-row'>
-                <div className='max-w-screen-sm p-5'>
+                <div className='w-full md:w-2/3 p-5'>
                     <div id="default-carousel" className="relative w-full" data-carousel="slide">
   {/* Carousel wrapper */}
   <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
     {/* Item 1 */}
     <div className="hidden duration-700 ease-in-out" data-carousel-item="">
       <img
-        src="https://images.unsplash.com/photo-1707187478206-f68e2b7f672f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D"
+        src={room.image}
         className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
         alt="..."
       />
