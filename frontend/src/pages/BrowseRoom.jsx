@@ -6,12 +6,12 @@ import rooms from '../components/roomData';
 
 const BrowseRoom = () => {
 
-  const {city} = useParams();
+  const { city } = useParams();
   console.log(city);
   const [roomList, setRoomList] = useState(rooms);
 
-  const getRooms = (city)=>{
-    const filteredRooms = rooms.filter((room)=>{
+  const getRooms = (city) => {
+    const filteredRooms = rooms.filter((room) => {
       return room.location.toLowerCase().includes(city.toLowerCase())
     })
     setRoomList(filteredRooms);
@@ -19,19 +19,53 @@ const BrowseRoom = () => {
   }
   // console.log(roomList);
 
-  useEffect(()=>{
+  useEffect(() => {
     getRooms(city);
-  },[])
+  }, [])
   return (
     <>
       <Navbar />
-      <p className='text-center text-2xl font-semibold my-6 bg-sky-100 p-10'>Rooms in {city.toUpperCase()}</p>
+      <p className='text-center text-2xl font-semibold mt-6 bg-sky-100 p-10 underline'>Rooms in {city.toUpperCase()}</p>
+      <div className='bg-sky-100 pb-5'>
+        <form className='bg-sky-100 max-w-screen-xl mx-auto px-10 py-5 flex gap-8 flex-wrap justify-evenly'>
+          <select
+            id="suitable"
+            className="w-full md:w-64 p-3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm "
+          >
+            <option value="">Suitable For</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="both">Both Male and Female</option>
+          </select>
+          <select
+            id="accomodation"
+            className="w-full md:w-64 p-3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm "
+          >
+            <option value="">Accomodation For</option>
+            <option value="working professional">Working Professionals</option>
+            <option value="students">Students</option>
+            <option value="both working professional and students">Both Working Professional and Students</option>
+          </select>
+          <select
+            id="price"
+            className="w-full md:w-64 p-3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm"
+          >
+            <option value="">Max Price</option>
+            <option value="3000">₹3000</option>
+            <option value="4000">₹4000</option>
+            <option value="5000">₹5000</option>
+            <option value="6000">₹6000</option>
+            <option value="7000">₹7000</option>
+          </select>
+          <button className='w-full md:w-[250px] border px-5 py-3 rounded-lg bg-blue-600 hover:opacity-90 text-white'>Search</button>
+        </form>
+      </div>
       <section className='my-10 mx-auto max-w-screen-xl flex flex-wrap gap-8 justify-center'>
-      {
-        roomList.length===0?<p className='text-center font-semibold text-2xl'>No results found</p>:
-          roomList.map((room)=>{
-          return (
-                <Link to={'/cities/'+city+'/'+room.id} className='my-4' key={room.id}>
+        {
+          roomList.length === 0 ? <p className='text-center font-semibold text-2xl'>No results found</p> :
+            roomList.map((room) => {
+              return (
+                <Link to={'/cities/' + city + '/' + room.id} className='my-4' key={room.id}>
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
                     <div>
                       <img className="rounded-t-lg w-full h-[324px]" src={room.image[0]} alt="room photo" />
@@ -39,7 +73,7 @@ const BrowseRoom = () => {
                     <div className="p-5">
                       <Link>
                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                          {room.title.toUpperCase()} 
+                          {room.title.toUpperCase()}
                         </h5>
                         <p className='font-semibold text-md mb-2'><i className="fa-solid fa-location-dot"></i> {room.location} </p>
                       </Link>
@@ -54,9 +88,9 @@ const BrowseRoom = () => {
                     </div>
                   </div>
                 </Link>
-          )
-        })
-      }
+              )
+            })
+        }
       </section>
       <Footer />
     </>
