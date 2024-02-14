@@ -5,12 +5,13 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useParams } from 'react-router-dom'
 import rooms from '../components/roomData.js';
+import { set } from 'mongoose'
 
 
 const RequestFormSchema = Yup.object({
   name: Yup.string().required('Name is required'),
-  number: Yup.number().required('Number is required').min(10, 'Number should be 10 digits').max(10, 'Number should be 10 digits'),
-  duration: Yup.string().required('Duration is required')
+  number: Yup.string().required('Number is required').min(10, 'Number should be 10 digits'),
+  // duration: Yup.string().required('Duration is required')
 })
 
 
@@ -37,10 +38,28 @@ const RoomDetails = () => {
     initialValues: {
       name: '',
       number: '',
-      duration: ''
+      // duration: ''
     },
-    onSubmit: (values) => {
+    onSubmit: async (values,{setSubmitting,resetForm}) => {
       console.log(values)
+      setSubmitting(true);
+      const res = await fetch('http://localhost:5000/cities/:city/:id/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
+      console.log(res.status);
+      setSubmitting(false);
+
+      if(res.status === 200){
+        enwueueSnackbar('Request Sent Successfully', {variant:'success'})
+        resetForm();
+      }
+      else{
+        enqueueSnackbar('Something went wrong', {variant:'error'})
+      }
     },
     validationSchema: RequestFormSchema
   })
@@ -186,22 +205,26 @@ const RoomDetails = () => {
             <form className='shadow-lg p-5 rounded' onSubmit={roomDetailsForm.handleSubmit}>
               <p className='font-bold text-xl text-[#065c77] my-2'>{room[0].ownerName}</p>
               <input type="text" className='w-full p-2 border border-gray-300 rounded-lg outline-none' placeholder='Your Name' id='name' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.name} />
+              <span className='text-sm text-red-600'>{roomDetailsForm.touched.name && roomDetailsForm.errors.name}</span>
               <input type='number' placeholder="Enter Your Number" className='w-full p-2 border border-gray-300 rounded-lg mt-4 outline-none' id='number' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.number} />
-              <div className='my-4'>
+              <span className='text-sm text-red-600'>{roomDetailsForm.touched.number && roomDetailsForm.errors.number}</span>
+              <div className='text-sm font-semibold'>Note: Phone Number must be active.</div>
+              {/* <div className='my-4'>
                 <p className='text-semibold text-lg mb-2'>How soon do you plan to move?</p>
                 <div class="flex items-center mb-1">
-                  <input id="duration" type="radio" value="within 7 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetailsForm.handleChange} />
+                  <input id="duration" type="radio" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" value='within 7 days' onChange={roomDetailsForm.handleChange} />
                   <label htmlFor="default-radio-1" className="ms-2 text-sm font-medium text-gray-900">Within 7 days</label>
                 </div>
                 <div class="flex items-center mb-1">
-                  <input id="duration" type="radio" value="7-14 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetailsForm.handleChange} />
+                  <input id="duration" type="radio" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" value='7 days - 14 days'  onChange={roomDetailsForm.handleChange} />
                   <label htmlFor="default-radio-2" className="ms-2 text-sm font-medium text-gray-900 ">7 days - 14 days</label>
                 </div>
                 <div class="flex items-center mb-2">
-                  <input id="duration" type="radio" value="more than 14 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetailsForm.handleChange} />
+                  <input id="duration" type="radio" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" value='more than 14 days' onChange={roomDetailsForm.handleChange} />
                   <label htmlFor="default-radio-3" className="ms-2 text-sm font-medium text-gray-900 ">More than 14 days</label>
                 </div>
-              </div>
+                <span className='text-sm text-red-600'>{roomDetailsForm.touched.duration && roomDetailsForm.errors.duration}</span>
+              </div> */}
               <button type='submit' className='mt-4 w-full text-white bg-[#065c77] rounded py-2'>Request a Callback</button>
             </form>
           </div>

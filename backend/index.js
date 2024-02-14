@@ -22,6 +22,7 @@ const UserRouter = require('./routers/userRouter')
 const FeedbackRouter = require('./routers/feedbackRouter')
 const ContactRouter = require('./routers/contactRouter')
 const AddRoomRouter = require('./routers/addRoomRouter')
+const RequestRouter = require('./routers/requestRouter')
 
 // Middlewares
 app.use(express.json());
@@ -32,6 +33,7 @@ app.use('/user',UserRouter)
 app.use('/feedback',FeedbackRouter)
 app.use('/contact',ContactRouter)
 app.use('/add-room',AddRoomRouter)
+app.use('/cities/:city/:id',RequestRouter)
 
 
 
