@@ -31,14 +31,37 @@ const BrowseRoom = () => {
       accomodation: '',
       price: ''
     },
-    onSubmit: (values) => {
+    onSubmit: (values,{resetForm}) => {
       console.log(values);
       console.log(values.suitable.toLowerCase());
       const filteredRooms = roomList.filter((room) => {
+        // return room.suitableFor.toLowerCase().includes(values.suitable.toLowerCase()) && room.accomodationFor.toLowerCase().includes(values.accomodation.toLowerCase()) && room.price <= values.price
+        if(values.suitable === '' && values.accomodation === '' && values.price === '') {
+          return room
+        }
+        if(values.suitable === '' && values.accomodation === '') {
+          return room.price <= values.price
+        }
+        if(values.suitable === '' && values.price === '') {
+          return room.accomodationFor.toLowerCase().includes(values.accomodation.toLowerCase())
+        }
+        if(values.accomodation === '' && values.price === '') {
+          return room.suitableFor.toLowerCase().includes(values.suitable.toLowerCase())
+        }
+        if(values.suitable === '') {
+          return room.accomodationFor.toLowerCase().includes(values.accomodation.toLowerCase()) && room.price <= values.price
+        }
+        if(values.accomodation === '') {
+          return room.suitableFor.toLowerCase().includes(values.suitable.toLowerCase()) && room.price <= values.price
+        }
+        if(values.price === '') {
+          return room.suitableFor.toLowerCase().includes(values.suitable.toLowerCase()) && room.accomodationFor.toLowerCase().includes(values.accomodation.toLowerCase())
+        }
         return room.suitableFor.toLowerCase().includes(values.suitable.toLowerCase()) && room.accomodationFor.toLowerCase().includes(values.accomodation.toLowerCase()) && room.price <= values.price
       })
       setRoomList(filteredRooms);
       console.log(filteredRooms);
+      resetForm();
     }
   })
   return (
@@ -56,7 +79,7 @@ const BrowseRoom = () => {
             <option value="">Suitable For</option>
             <option value="working">Working Professionals</option>
             <option value="students">Students</option>
-            <option value="working and students">Both Working Professional and Students</option>
+            <option value="students and working">Both Working Professional and Students</option>
           </select>
           <select
             id="accomodation"
