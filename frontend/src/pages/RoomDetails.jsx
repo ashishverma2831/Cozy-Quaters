@@ -5,7 +5,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useParams } from 'react-router-dom'
 import rooms from '../components/roomData.js';
-import { set } from 'mongoose'
+import { enqueueSnackbar } from 'notistack'
 
 
 const RequestFormSchema = Yup.object({
@@ -54,7 +54,7 @@ const RoomDetails = () => {
       setSubmitting(false);
 
       if(res.status === 200){
-        enwueueSnackbar('Request Sent Successfully', {variant:'success'})
+        enqueueSnackbar('Request Sent Successfully', {variant:'success'})
         resetForm();
       }
       else{
