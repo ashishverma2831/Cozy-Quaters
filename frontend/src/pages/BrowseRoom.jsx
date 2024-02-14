@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { Link, useParams } from 'react-router-dom';
 import rooms from '../components/roomData';
+import { useFormik } from 'formik';
 
 const BrowseRoom = () => {
 
@@ -22,33 +23,57 @@ const BrowseRoom = () => {
   useEffect(() => {
     getRooms(city);
   }, [])
+
+
+  const filterForm = useFormik({
+    initialValues: {
+      suitable: '',
+      accomodation: '',
+      price: ''
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      console.log(values.suitable.toLowerCase());
+      const filteredRooms = roomList.filter((room) => {
+        return room.suitableFor.toLowerCase().includes(values.suitable.toLowerCase()) && room.accomodationFor.toLowerCase().includes(values.accomodation.toLowerCase()) && room.price <= values.price
+      })
+      setRoomList(filteredRooms);
+      console.log(filteredRooms);
+    }
+  })
   return (
     <>
       <Navbar />
       <p className='text-center text-2xl font-semibold mt-6 bg-sky-100 p-10 underline'>Rooms in {city.toUpperCase()}</p>
       <div className='bg-sky-100 pb-5'>
-        <form className='bg-sky-100 max-w-screen-xl mx-auto px-10 py-5 flex gap-8 flex-wrap justify-evenly'>
+        <form className='bg-sky-100 max-w-screen-xl mx-auto px-10 py-5 flex gap-8 flex-wrap justify-evenly' onSubmit={filterForm.handleSubmit}>
           <select
             id="suitable"
             className="w-full md:w-64 p-3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm "
+            onChange={filterForm.handleChange}
+            value={filterForm.values.suitable}
           >
             <option value="">Suitable For</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="both">Both Male and Female</option>
+            <option value="working">Working Professionals</option>
+            <option value="students">Students</option>
+            <option value="working and students">Both Working Professional and Students</option>
           </select>
           <select
             id="accomodation"
             className="w-full md:w-64 p-3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm "
+            onChange={filterForm.handleChange}
+            value={filterForm.values.accomodation}
           >
             <option value="">Accomodation For</option>
-            <option value="working professional">Working Professionals</option>
-            <option value="students">Students</option>
-            <option value="both working professional and students">Both Working Professional and Students</option>
+            <option value="Boys">Male</option>
+            <option value="Girls">Female</option>
+            <option value="Boys and Girls">Both Male and Female</option>
           </select>
           <select
             id="price"
             className="w-full md:w-64 p-3 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm"
+            onChange={filterForm.handleChange}
+            value={filterForm.values.price}
           >
             <option value="">Max Price</option>
             <option value="3000">₹3000</option>
@@ -57,7 +82,7 @@ const BrowseRoom = () => {
             <option value="6000">₹6000</option>
             <option value="7000">₹7000</option>
           </select>
-          <button className='w-full md:w-[250px] border px-5 py-3 rounded-lg bg-blue-600 hover:opacity-90 text-white'>Search</button>
+          <button  type='submit' className='w-full md:w-[250px] border px-5 py-3 rounded-lg bg-blue-600 hover:opacity-90 text-white'>Search</button>
         </form>
       </div>
       <section className='my-10 mx-auto max-w-screen-xl flex flex-wrap gap-8 justify-center'>
