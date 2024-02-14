@@ -27,9 +27,9 @@ const RoomDetails = () => {
     // console.log(id);
     console.log(room);
     setRoom(room);
-    console.log(room[0].image[0]);
-    console.log(room[0].image[1]);
-    console.log(room[0].image[2]);
+    // console.log(room[0].image[0]);
+    // console.log(room[0].image[1]);
+    // console.log(room[0].image[2]);
   }
 
 
@@ -187,7 +187,7 @@ const RoomDetails = () => {
               <p className='font-bold text-xl text-[#065c77] my-2'>{room[0].ownerName}</p>
               <input type="text" className='w-full p-2 border border-gray-300 rounded-lg outline-none' placeholder='Your Name' id='name' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.name} />
               <input type='number' placeholder="Enter Your Number" className='w-full p-2 border border-gray-300 rounded-lg mt-4 outline-none' id='number' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.number} />
-              {/* <div className='my-4'>
+              <div className='my-4'>
                 <p className='text-semibold text-lg mb-2'>How soon do you plan to move?</p>
                 <div class="flex items-center mb-1">
                   <input id="duration" type="radio" value="within 7 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetailsForm.handleChange} />
@@ -201,7 +201,7 @@ const RoomDetails = () => {
                   <input id="duration" type="radio" value="more than 14 days" name="default-radio" className="outline-none w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={roomDetailsForm.handleChange} />
                   <label htmlFor="default-radio-3" className="ms-2 text-sm font-medium text-gray-900 ">More than 14 days</label>
                 </div>
-              </div> */}
+              </div>
               <button type='submit' className='mt-4 w-full text-white bg-[#065c77] rounded py-2'>Request a Callback</button>
             </form>
           </div>
