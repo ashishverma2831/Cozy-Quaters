@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import { enqueueSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
+import useAppContext from '../AppContext';
 
 const feedbackSchema = Yup.object().shape({
     name: Yup.string().required('Name is required').min(4,'Name is too short'),
@@ -15,6 +16,7 @@ const feedbackSchema = Yup.object().shape({
 
 const Feedback = () => {
 
+  const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
   const navigate = useNavigate();
   const feedbackForm = useFormik({
     initialValues:{
@@ -51,6 +53,7 @@ const Feedback = () => {
   return (
     <>
       <Navbar />
+      {/* {currentUser && <h1>{currentUser.name}</h1>} */}
       <section className="bg-white dark:bg-gray-900">
   <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
     <h2 className="mb-8 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
@@ -71,7 +74,7 @@ const Feedback = () => {
           placeholder="your name"
           required="true"
           onChange={feedbackForm.handleChange}
-          value={feedbackForm.values.name}
+          value={currentUser?currentUser.name:feedbackForm.values.name}
         />
         <span className='text-sm text-red-600'>{feedbackForm.touched.name && feedbackForm.errors.name}</span>
       </div>
@@ -89,7 +92,7 @@ const Feedback = () => {
           placeholder="name@flowbite.com"
           required="true"
           onChange={feedbackForm.handleChange}
-          value={feedbackForm.values.email}
+          value={currentUser?currentUser.email:feedbackForm.values.email}
         />
         <span className='text-sm text-red-600'>{feedbackForm.touched.email && feedbackForm.errors.email}</span>
       </div>

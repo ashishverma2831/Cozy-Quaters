@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import { enqueueSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
+import useAppContext from '../AppContext';
 
 
 const contactSchema = Yup.object().shape({
@@ -15,6 +16,7 @@ const contactSchema = Yup.object().shape({
 
 const Contact = () => {
 
+  const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
   const navigate = useNavigate();
   const contactForm = useFormik({
     initialValues:{
@@ -74,7 +76,7 @@ const Contact = () => {
           placeholder="name@flowbite.com"
           required="true"
           onChange={contactForm.handleChange}
-          value={contactForm.values.email}
+          value={currentUser?currentUser.email:contactForm.values.email}
         />
         <span className='text-sm text-red-600'>{contactForm.touched.email && contactForm.errors.email}</span>
       </div>
