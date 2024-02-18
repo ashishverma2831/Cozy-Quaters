@@ -6,6 +6,7 @@ import Slider from '../components/Slider'
 import FeatureCard from '../components/FeatureCard'
 import rooms from '../components/roomData'
 import { Link } from 'react-router-dom'
+import FeedbackSlider from '../components/FeedbackSlider'
 
 const Home = () => {
 
@@ -119,6 +120,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <FeedbackSlider />
       <Footer />
     </>
   )
