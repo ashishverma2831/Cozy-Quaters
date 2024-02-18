@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import { useParams } from 'react-router-dom'
 import rooms from '../components/roomData.js';
 import { enqueueSnackbar } from 'notistack'
+import useAppContext from '../AppContext.jsx'
 
 
 const RequestFormSchema = Yup.object({
@@ -16,6 +17,8 @@ const RequestFormSchema = Yup.object({
 
 
 const RoomDetails = () => {
+
+  const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
 
   const { id } = useParams();
   // console.log(id);
@@ -204,7 +207,7 @@ const RoomDetails = () => {
           <div className='flex-1 py-5 bg-white mx-5'>
             <form className='shadow-lg p-5 rounded' onSubmit={roomDetailsForm.handleSubmit}>
               <p className='font-bold text-xl text-[#065c77] my-2'>{room.ownerName}</p>
-              <input type="text" className='w-full p-2 border border-gray-300 rounded-lg outline-none' placeholder='Your Name' id='name' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.name} />
+              <input type="text" className='w-full p-2 border border-gray-300 rounded-lg outline-none' placeholder='Your Name' id='name' onChange={roomDetailsForm.handleChange} value={currentUser?currentUser.name:roomDetailsForm.values.name} />
               <span className='text-sm text-red-600'>{roomDetailsForm.touched.name && roomDetailsForm.errors.name}</span>
               <input type='number' placeholder="Enter Your Number" className='w-full p-2 border border-gray-300 rounded-lg mt-4 outline-none' id='number' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.number} />
               <span className='text-sm text-red-600'>{roomDetailsForm.touched.number && roomDetailsForm.errors.number}</span>
