@@ -2,9 +2,20 @@ import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useFormik } from 'formik';
+import { useNavigate, useParams } from 'react-router-dom';
+import { enqueueSnackbar } from 'notistack';
+import * as Yup from 'yup';
+
+const resetSchema = Yup.object().shape({
+    password: Yup.string().required('Password is required').min(8, 'Password must be at least 8 characters'),
+    confirm: Yup.string().required('Confirm password is required').oneOf([Yup.ref('password'), null], 'Passwords must match')
+})
 
 const ResetPassword = () => {
 
+    const {id} = useParams();
+    const navigate = useNavigate();
+    const [userData, setUserData] = useState(null);
     const [passwordHidden, setPasswordHidden] = useState(true);
     const [confirmPasswordHidden, setConfirmPasswordHidden] = useState(true);
     const resetForm = useFormik({
@@ -14,7 +25,7 @@ const ResetPassword = () => {
         },
         onSubmit: async (values) => {
             console.log(values);
-            const res = await fetch('http://localhost:5000/user/reset-password/:id', {
+            const res = await fetch('http://localhost:5000/user/reset-password/'+id, {
                 method: 'PUT',
                 body: JSON.stringify(values),
                 headers: {
@@ -22,9 +33,21 @@ const ResetPassword = () => {
                 }
             });
             const data = await res.json();
-            
+            setUserData(data);
             console.log(res.status);
-        }
+            if (res.status === 200) {
+                enqueueSnackbar('Password reset successfully!', {
+                    variant: 'success',
+                })
+                navigate('/login');
+            }
+            else {
+                enqueueSnackbar('Password reset failed!', {
+                    variant: 'error',
+                })
+            }
+        },
+        validationSchema: resetSchema
     })
   return (
     <>
@@ -56,7 +79,7 @@ const ResetPassword = () => {
                   />
                   <button type='button' className='absolute end-2 bottom-2' onClick={()=>{setPasswordHidden(!passwordHidden)}}>{passwordHidden?<i className="fa-solid fa-eye"></i>:<i className="fa-regular fa-eye"></i>}</button>
                   </div>
-                  <span className='text-sm text-red-600'>{resetForm.touched.password && registerForm.errors.password}</span>
+                  <span className='text-sm text-red-600'>{resetForm.touched.password && resetForm.errors.password}</span>
                 </div>
                 <div>
                   <label
@@ -78,7 +101,7 @@ const ResetPassword = () => {
                   />
                   <button type='button' className='absolute end-2 bottom-2' onClick={()=>{setConfirmPasswordHidden(!confirmPasswordHidden)}}>{confirmPasswordHidden?<i className="fa-solid fa-eye"></i>:<i className="fa-regular fa-eye"></i>}</button>
                   </div>
-                  <span className='text-sm text-red-600'>{resetForm.touched.confirm && registerForm.errors.confirm}</span>
+                  <span className='text-sm text-red-600'>{resetForm.touched.confirm && resetForm.errors.confirm}</span>
                 </div>
               <button
                 type="submit"
