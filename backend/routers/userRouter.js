@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Model = require('../models/userModel.js')
+const Model = require('../models/userModel.js');
+const { Query } = require('mongoose');
 // const bcryptjs = require('bcryptjs');
 
 router.post('/add',(req,res)=>{
@@ -91,15 +92,23 @@ router.put('/update/:id',(req,res)=>{
     });
 })
 
-router.post('/forgetpassword',(req,res)=>{
+router.post('/forget-password',(req,res)=>{
     console.log(req.body);
-    Model.findOne(req.body)
+    const {email} = req.body;
+    console.log(email);
+    Model.findOne({
+        email:email
+    })
     .then((result) => {
-        res.json(result);
+        if(result)
+            res.json(result);
+        else 
+            res.status(401).json({message:'Invalid Credentials'});
     }).catch((err) => {
         console.log(err);
         res.status(500).json(err)
     });
 })
+
 
 module.exports = router 

@@ -1,55 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { useFormik } from 'formik'
-import { enqueueSnackbar } from 'notistack'
-import { useNavigate } from 'react-router-dom'
 
-const ForgetPassword = () => {
-
-  const navigate = useNavigate();
-  const forgetForm = useFormik({
-    initialValues: {
-      email: '',
-    },
-    onSubmit: async(values)=>{
-      console.log(values);
-      const res = await fetch('http://localhost:5000/user/forget-password',{
-        method:'POST',
-        body:JSON.stringify(values),
-        headers:{
-          'Content-Type':'application/json'
-        }
-      })
-      console.log(res.status);
-      if(res.status===200){
-        enqueueSnackbar('You can reset your Password!', {
-          variant: 'success',
-        })
-        navigate('/reset-password')
-      }
-      else{
-        enqueueSnackbar('User not found!', {
-          variant: 'error',
-        })
-      }
-    }
-  })
-
+const ResetPassword = () => {
   return (
     <>
-      <Navbar />
-      <section className="bg-gray-50 dark:bg-gray-900">
+        <Navbar />
+        <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="w-full p-6 bg-white rounded-lg shadow-lg dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
-            <h1 className="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Forgot your password?
+            <h1 className="text-center mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              Reset Password
             </h1>
-            <p className="font-light text-gray-500 dark:text-gray-400">
-              Don't fret! Just type in your email and we will send you a code to reset
-              your password!
-            </p>
-            <form className="mt-4 space-y-4 lg:mt-5 md:space-y-5" onSubmit={forgetForm.handleSubmit}>
+            <form className="mt-4 space-y-4 lg:mt-5 md:space-y-5">
               <div>
                 <label
                   htmlFor="email"
@@ -64,8 +27,6 @@ const ForgetPassword = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
                   required="true"
-                  onChange={forgetForm.handleChange}
-                  value={forgetForm.values.email}
                 />
               </div>
               <button
@@ -78,9 +39,9 @@ const ForgetPassword = () => {
           </div>
         </div>
       </section>
-      <Footer />
+        <Footer />
     </>
   )
 }
 
-export default ForgetPassword
+export default ResetPassword

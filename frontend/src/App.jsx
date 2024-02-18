@@ -21,6 +21,7 @@ import ViewRooms from './admin/ViewRooms'
 import ViewUsers from './admin/ViewUsers'
 import UpdateProfile from './pages/UpdateProfile'
 import RoomDetails from './pages/RoomDetails'
+import ResetPassword from './pages/ResetPassword'
 
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
             <Route path="/view-users" element={<ViewUsers />} />
             <Route path="/update-profile/:id" element={<UpdateProfile />} />
             <Route path="/cities/:city/:id" element={<RoomDetails />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           </AppProvider>
