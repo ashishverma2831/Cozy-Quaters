@@ -11,20 +11,20 @@ const ForgetPassword = () => {
     },
     onSubmit: values => {
       console.log(values)
-      fetch('http://localhost:5000/user/forget-password', {
+      const res = fetch('http://localhost:5000/user/forgetpassword', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Success:', data)
-        })
-        .catch(error => {
-          console.error('Error:', error)
-        })
+      console.log(res.status);
+      if (res.status === 200) {
+        console.log('Password reset link sent successfully')
+      }
+      else{
+        console.log('Password reset link not sent')
+      }
     }
   })
 

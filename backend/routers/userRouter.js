@@ -91,14 +91,11 @@ router.put('/update/:id',(req,res)=>{
     });
 })
 
-router.post('/forget-password',(req,res)=>{
+router.post('/forgetpassword',(req,res)=>{
     console.log(req.body);
     Model.findOne(req.body)
     .then((result) => {
-        if(result)
-            res.json(result);
-        else 
-            res.status(401).json({message:'Invalid Credentials'});
+        res.json(result);
     }).catch((err) => {
         console.log(err);
         res.status(500).json(err)
