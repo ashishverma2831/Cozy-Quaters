@@ -4,12 +4,16 @@ import Footer from '../components/Footer'
 import { useNavigate, useParams } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
 import { Formik } from 'formik'
+import useAppContext from '../AppContext'
 
 const UpdateProfile = () => {
 
     const {id} = useParams();
     const [userData, setUserData] = useState(null);
     const navigate = useNavigate();
+    // const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
+    const [passwordHidden, setPasswordHidden] = useState(true)
+    const [confirmPasswordHidden, setConfirmPasswordHidden] = useState(true)
 
     console.log(id);
     const getUserData = async ()=>{
@@ -105,7 +109,7 @@ const UpdateProfile = () => {
                   </label>
                   <div className='relative'>
                   <input
-                    type='text'
+                    type={passwordHidden?'password':'text'}
                     name="password"
                     id="password"
                     placeholder="••••••••"
@@ -114,6 +118,7 @@ const UpdateProfile = () => {
                     onChange={registerForm.handleChange}
                     value={registerForm.values.password}
                   />
+                  <button type='button' className='absolute end-2 bottom-2' onClick={()=>{setPasswordHidden(!passwordHidden)}}>{passwordHidden?<i className="fa-solid fa-eye"></i>:<i className="fa-regular fa-eye"></i>}</button>
                   </div>
                   <span className='text-sm text-red-600'>{registerForm.touched.password && registerForm.errors.password}</span>
                 </div>
@@ -126,7 +131,7 @@ const UpdateProfile = () => {
                   </label>
                   <div className='relative'>
                   <input
-                    type='text'
+                    type={confirmPasswordHidden?'password':'text'}
                     name="confirm"
                     id="confirm"
                     placeholder="••••••••"
@@ -135,6 +140,7 @@ const UpdateProfile = () => {
                     onChange={registerForm.handleChange}
                     value={registerForm.values.confirm}
                   />
+                  <button type='button' className='absolute end-2 bottom-2' onClick={()=>{setConfirmPasswordHidden(!confirmPasswordHidden)}}>{confirmPasswordHidden?<i className="fa-solid fa-eye"></i>:<i className="fa-regular fa-eye"></i>}</button>
                   </div>
                   <span className='text-sm text-red-600'>{registerForm.touched.confirm && registerForm.errors.confirm}</span>
                 </div>
