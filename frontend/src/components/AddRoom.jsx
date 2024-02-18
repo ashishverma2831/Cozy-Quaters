@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import { enqueueSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
+import useAppContext from '../AppContext';
 
 const SubmitRoomSchema = Yup.object().shape({
     name: Yup.string().required('Name is required').min(3, 'Name is too short'),
@@ -22,7 +23,7 @@ const SubmitRoomSchema = Yup.object().shape({
 const AddRoom = () => {
 
     const [selFile, setSelFile] = useState('');
-
+    const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
     const submitRoom = useFormik({
         initialValues: {
             name: '',
@@ -98,7 +99,7 @@ const AddRoom = () => {
                                 placeholder="Enter your name..."
                                 required="true"
                                 onChange={submitRoom.handleChange}
-                                value={submitRoom.values.name}
+                                value={currentUser?currentUser.name:submitRoom.values.name}
                             />
                             <span className='text-sm text-red-600'>{submitRoom.touched.name && submitRoom.errors.name}</span>
                         </div>
@@ -117,7 +118,7 @@ const AddRoom = () => {
                                 placeholder="name@company.com"
                                 required="true"
                                 onChange={submitRoom.handleChange}
-                                value={submitRoom.values.email}
+                                value={currentUser?currentUser.email:submitRoom.values.email}
                             />
                             <span className='text-sm text-red-600'>{submitRoom.touched.email && submitRoom.errors.email}</span>
                         </div>
