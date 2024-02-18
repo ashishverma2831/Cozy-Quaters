@@ -35,4 +35,35 @@ router.get('/all',(req,res)=>{
     });
 })
 
+// router.get('/one/:id',(req,res)=>{
+//     Feedback.findById(req.params.id)
+//     .then((result) => {
+//         res.json(result);
+//     }).catch((err) => {
+//         console.error(err);
+//         res.json(err);
+//     });
+// })
+
+// router.put('/update/:id',(req,res)=>{
+//     Feedback.findByIdAndUpdate
+//     (req.params.id,req.body,{new:true})
+//     .then((result) => {
+//         res.json(result);
+//     }).catch((err) => {
+//         console.error(err);
+//         res.json(err);
+//     });
+// })
+
+// limited feedbacks
+router.get('/limited',(req,res)=>{
+    Feedback.find().limit(5).sort({createdAt:-1})
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.error(err);
+        res.json(err);
+    });
+})
 module.exports = router

@@ -108,6 +108,7 @@ const Feedback = () => {
           onChange={feedbackForm.handleChange}
           value={feedbackForm.values.rating}
         >
+          <option value="">Give Ratings</option>
           <option value="5">5 stars</option>
           <option value="4">4 stars</option>
           <option value="3">3 stars</option>
