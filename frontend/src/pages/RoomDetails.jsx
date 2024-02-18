@@ -19,15 +19,15 @@ const RoomDetails = () => {
 
   const { id } = useParams();
   // console.log(id);
-  const [room, setRoom] = useState(rooms);
+  const [room, setRoom] = useState(rooms[id-1]);
   // console.log(room);
-  const getRoomDetails = (id) => {
-    const room = rooms.filter((room) => {
+  const getRoomDetails = () => {
+    const temp = rooms.filter((room) => {
       return room.id === parseInt(id);
     });
     // console.log(id);
-    console.log(room);
-    setRoom(room);
+    console.log(temp);
+    setRoom(temp);
     // console.log(room[0].image[0]);
     // console.log(room[0].image[1]);
     // console.log(room[0].image[2]);
@@ -66,7 +66,7 @@ const RoomDetails = () => {
 
 
   useEffect(() => {
-    getRoomDetails(id);
+    // getRoomDetails();
   }, [])
 
   return (
@@ -75,13 +75,13 @@ const RoomDetails = () => {
       <section className=' mx-auto max-w-screen-lg my-10'>
         <div className='flex p-2 justify-between items-center'>
           <div className='px-4'>
-            <p className='text-3xl font-semibold flex'>{room[0].title.toUpperCase()}
-              <span className="mx-4 text-white bg-[#065c77] text-[20px] font-normal px-2 py-1 rounded"> {room[0].accomodationFor} </span>
+            <p className='text-3xl font-semibold flex'>{room.title.toUpperCase()}
+              <span className="mx-4 text-white bg-[#065c77] text-[20px] font-normal px-2 py-1 rounded"> {room.accomodationFor} </span>
             </p>
-            <p className='text-lg font-normal my-2'><i className="fa-solid fa-location-dot mr-1"></i> {room[0].location} </p>
+            <p className='text-lg font-normal my-2'><i className="fa-solid fa-location-dot mr-1"></i> {room.location} </p>
           </div>
           <div className='px-4'>
-            <p className='text-3xl font-semibold text-[#065c77]'>₹ {room[0].price}</p>
+            <p className='text-3xl font-semibold text-[#065c77]'>₹ {room.price}</p>
           </div>
         </div>
         <div className='flex flex-col md:flex-row'>
@@ -90,25 +90,25 @@ const RoomDetails = () => {
               {/* Carousel wrapper */}
               <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
                 {/* Item 1 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item="">
+                <div className="duration-700 ease-in-out" data-carousel-item="">
                   <img
-                    src={room[0].image[0]}
+                    src={room.image[0]}
                     className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                     alt="photo-1"
                   />
                 </div>
                 {/* Item 2 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item="">
+                <div className="duration-700 ease-in-out" data-carousel-item="">
                   <img
-                    src={room[0].image[1]}
+                    src={room.image[1]}
                     className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                     alt="photo-2"
                   />
                 </div>
                 {/* Item 3 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item="">
+                <div className="duration-700 ease-in-out" data-carousel-item="">
                   <img
-                    src={room[0].image[2]}
+                    src={room.image[2]}
                     className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                     alt="photo-3"
                   />
@@ -191,19 +191,19 @@ const RoomDetails = () => {
             <div>
               <p className="text-white my-4 bg-[#065c77] text-md font-medium px-4 py-1.5 rounded">Details</p>
               <div>
-                <div className='p-2 flex border-b'><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Accomodation for :</p><p> {room[0].accomodationFor} </p></div>
-                <div className='p-2 flex border-b'><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Suitable for :</p><p> {room[0].suitableFor} </p></div>
-                <div className='p-2 flex '><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Location :</p><p> {room[0].location} </p></div>
+                <div className='p-2 flex border-b'><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Accomodation for :</p><p> {room.accomodationFor} </p></div>
+                <div className='p-2 flex border-b'><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Suitable for :</p><p> {room.suitableFor} </p></div>
+                <div className='p-2 flex '><p className='w-1/2 font-semibold text-md px-4 text-sky-700'>Location :</p><p> {room.location} </p></div>
               </div>
             </div>
             <div>
               <p className="text-white my-4 bg-[#065c77] text-md font-medium px-4 py-1.5 rounded">Description</p>
-              <p className='font-semibold text-sm px-4'>{room[0].description}</p>
+              <p className='font-semibold text-sm px-4'>{room.description}</p>
             </div>
           </div>
           <div className='flex-1 py-5 bg-white mx-5'>
             <form className='shadow-lg p-5 rounded' onSubmit={roomDetailsForm.handleSubmit}>
-              <p className='font-bold text-xl text-[#065c77] my-2'>{room[0].ownerName}</p>
+              <p className='font-bold text-xl text-[#065c77] my-2'>{room.ownerName}</p>
               <input type="text" className='w-full p-2 border border-gray-300 rounded-lg outline-none' placeholder='Your Name' id='name' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.name} />
               <span className='text-sm text-red-600'>{roomDetailsForm.touched.name && roomDetailsForm.errors.name}</span>
               <input type='number' placeholder="Enter Your Number" className='w-full p-2 border border-gray-300 rounded-lg mt-4 outline-none' id='number' onChange={roomDetailsForm.handleChange} value={roomDetailsForm.values.number} />

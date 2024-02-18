@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { useFormik } from 'formik'
@@ -14,12 +14,15 @@ const SubmitRoomSchema = Yup.object().shape({
     suitable: Yup.string().required('Suitable is required'),
     amount: Yup.string().required('Amount is required'),
     roomname: Yup.string().required('Room name is required'),
-    image: Yup.string().required('Image is required'),
+    // image: Yup.string().required('Image is required'),
     description: Yup.string().required('Description is required'),
     address: Yup.string().required('Address is required')
 })
 
 const AddRoom = () => {
+
+    const [selFile, setSelFile] = useState('');
+
     const submitRoom = useFormik({
         initialValues: {
             name: '',
@@ -33,7 +36,8 @@ const AddRoom = () => {
             description: '',
             address: ''
         },
-        onSubmit: async(values,{setSubmitting,resetForm}) => {
+        onSubmit: async (values, { setSubmitting, resetForm }) => {
+            values.image = selFile; 
             console.log(values)
             setSubmitting(true);
             const response = await fetch('http://localhost:5000/add-room/add', {
@@ -46,16 +50,31 @@ const AddRoom = () => {
             console.log(response.status);
             setSubmitting(false);
 
-            if(response.status === 200){
+            if (response.status === 200) {
                 enqueueSnackbar('Room added successfully', { variant: 'success' });
                 resetForm();
             }
-            else{
+            else {
                 enqueueSnackbar('Room not added', { variant: 'error' });
             }
         },
         validationSchema: SubmitRoomSchema
-    })
+    });
+
+    const uploadFile = (e) => {
+        const file = e.target.files[0];
+        setSelFile(file.name);
+        const fd = new FormData();
+        fd.append("myfile", file);
+        fetch("http://localhost:5000/util/uploadfile", {
+          method: "POST",
+          body: fd,
+        }).then((res) => {
+          if (res.status === 200) {
+            console.log("file uploaded");
+          }
+        });
+      };
 
     return (
         <>
@@ -63,7 +82,7 @@ const AddRoom = () => {
             <section className='max-w-screen-lg flex flex-col gap-4 mx-auto p-5 my-10'>
                 <p className='text-3xl font-extrabold text-center my-4'>Submit Room</p>
                 <form onSubmit={submitRoom.handleSubmit}>
-                    <div className='flex gap-4 md:gap-6 w-full py-2'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full py-2'>
                         <div className='w-full'>
                             <label
                                 htmlFor="name"
@@ -218,8 +237,7 @@ const AddRoom = () => {
                                 className="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                 id="image"
                                 type="file"
-                                onChange={submitRoom.handleChange}
-                                value={submitRoom.values.image}
+                                onChange={uploadFile}
                             />
                             <span className='text-sm text-red-600'>{submitRoom.touched.image && submitRoom.errors.image}</span>
                         </div>
