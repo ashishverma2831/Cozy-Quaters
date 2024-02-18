@@ -21,12 +21,16 @@ const ForgetPassword = () => {
           'Content-Type':'application/json'
         }
       })
+      const data = await res.json();
+      console.log(data);
+      console.log(data._id);
+      console.log(res);
       console.log(res.status);
       if(res.status===200){
         enqueueSnackbar('You can reset your Password!', {
           variant: 'success',
         })
-        navigate('/reset-password')
+        navigate('/reset-password/'+data._id)
       }
       else{
         enqueueSnackbar('User not found!', {

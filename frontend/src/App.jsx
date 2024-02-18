@@ -49,7 +49,7 @@ const App = () => {
             <Route path="/view-users" element={<ViewUsers />} />
             <Route path="/update-profile/:id" element={<UpdateProfile />} />
             <Route path="/cities/:city/:id" element={<RoomDetails />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/reset-password/:id" element={<ResetPassword />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           </AppProvider>
