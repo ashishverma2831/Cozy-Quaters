@@ -50,7 +50,7 @@ const Slider = () => {
         className="max-w-screen-xl mx-auto flex justify-center"
       >
         {
-          rooms.map((room) => {
+          rooms.slice(0,8).map((room) => {
             return (
               <SwiperSlide>
                 <div className='my-4' key={room.id}>
