@@ -99,7 +99,6 @@ const RoomApi = () => {
             );
           })
         }
-        {/* <SwiperSlide><RoomCard /></SwiperSlide> */}
         <div className='swiper-button-next rounded-full bg-gray-200 h-20 w-20 text-gray-400  shadow-lg'></div>
         <div className='swiper-button-prev  rounded-full bg-gray-200 h-20 w-20 text-gray-400 shadow-lg'></div>
       </Swiper>
