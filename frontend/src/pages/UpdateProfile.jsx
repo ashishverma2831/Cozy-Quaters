@@ -5,6 +5,16 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
 import { Formik } from 'formik'
 import useAppContext from '../AppContext'
+import * as Yup from 'yup'
+
+
+const registerSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required').min(4,'Name is too short'),
+  email: Yup.string().email('Invalid email').required('Required'),
+  password:Yup.string().required('Password is required').min(8,'Password is too short'),
+  // .matches(/[a-zA-Z]\d/, 'password must include uppercase and lowercase letter'),
+  confirm:Yup.string().oneOf([Yup.ref('password'),null], 'Password must match').required('confirm password is required')
+})
 
 const UpdateProfile = () => {
 
@@ -47,10 +57,11 @@ const UpdateProfile = () => {
   return (
     <>
         <Navbar />
-        
         {
             userData!==null?(
-                <Formik initialValues={userData} onSubmit={submitForm} >
+                <Formik initialValues={userData} onSubmit={submitForm}
+                  validationSchema={registerSchema}
+                >
                     {(registerForm)=>{
                         return (
                             <section className="bg-gray-50">
