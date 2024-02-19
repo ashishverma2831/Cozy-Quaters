@@ -19,7 +19,7 @@ const RoomApi = () => {
     const [roomList, setRoomList] = useState([]);
     const fetchRooms = async ()=>{
         try {
-            const res = await fetch('http://localhost:5000/add-room/all');
+            const res = await fetch('http://localhost:5000/add-room/limited');
             const data = await res.json();
             setRoomList(data);
         } catch (error) {

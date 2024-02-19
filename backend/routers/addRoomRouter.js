@@ -35,4 +35,14 @@ router.get('/all',(req,res)=>{
     });
 })
 
+router.get('/limited',(req,res)=>{
+    AddRoom.find().limit(10).sort({createdAt:-1})
+    .then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.error(err);
+        res.json(err);
+    });
+})
+
 module.exports = router
