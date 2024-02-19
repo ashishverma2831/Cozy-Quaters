@@ -7,6 +7,7 @@ import FeatureCard from '../components/FeatureCard'
 import rooms from '../components/roomData'
 import { Link } from 'react-router-dom'
 import FeedbackSlider from '../components/FeedbackSlider'
+import RoomApi from '../components/RoomApi'
 
 const Home = () => {
 
@@ -69,7 +70,8 @@ const Home = () => {
           <p className='text-center font-bold text-4xl'>Newly added Rooms</p>
         </div>
         <div className='py-10'>
-          <Slider />
+          {/* <Slider /> */}
+          <RoomApi />
         </div>
       </section>
       <section className='my-10 mx-auto max-w-screen-xl'>
