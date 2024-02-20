@@ -78,13 +78,13 @@ const RoomDetails = () => {
       <section className=' mx-auto max-w-screen-lg my-10'>
         <div className='flex p-2 justify-between items-center'>
           <div className='px-4'>
-            <p className='text-3xl font-semibold flex'>{room.title.toUpperCase()}
+            <p className='text-3xl font-semibold capitalize flex'>{room.title}
               <span className="mx-4 text-white bg-[#065c77] text-[20px] font-normal px-2 py-1 rounded"> {room.accomodationFor} </span>
             </p>
-            <p className='text-lg font-normal my-2'><i className="fa-solid fa-location-dot mr-1"></i> {room.location} </p>
+            <p className='text-lg font-normal my-1'><i className="fa-solid fa-location-dot mr-1"></i> {room.location} </p>
           </div>
           <div className='px-4'>
-            <p className='text-3xl font-semibold text-[#065c77]'>₹ {room.price}</p>
+            <p className='text-5xl font-extrabold text-[#065c77] italic'>₹ {room.price}</p>
           </div>
         </div>
         <div className='flex flex-col md:flex-row'>
