@@ -36,6 +36,7 @@ app.use('/contact',ContactRouter)
 app.use('/add-room',AddRoomRouter)
 app.use('/cities/:city/:id',RequestRouter)
 app.use('/util',utilRouter)
+app.use('/uploads',express.static('uploads'))
 
 
 // Starting the Server

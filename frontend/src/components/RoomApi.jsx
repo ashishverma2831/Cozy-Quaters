@@ -66,15 +66,15 @@ const RoomApi = () => {
         className="max-w-screen-xl mx-auto flex justify-center"
       >
         {
-          roomList.map((room) => {
+          roomList.map((room,index) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <div className='my-4' key={room._id} >
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg ">
                     <div>
                       <img className="rounded-t-lg w-full h-[324px]" 
-                        src={'http://localhost:5000/'+room.image}
-                      alt="room photo" />
+                        src={'http://localhost:5000/uploads/'+room.image}
+                      alt={room.image} />
                     </div>
                     <div className="p-5">
                       <Link >

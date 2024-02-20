@@ -70,8 +70,8 @@ const Home = () => {
           <p className='text-center font-bold text-4xl'>Newly added Rooms</p>
         </div>
         <div className='py-10'>
-          <Slider />
-          {/* <RoomApi /> */}
+          {/* <Slider /> */}
+          <RoomApi />
         </div>
       </section>
       <section className='my-10 mx-auto max-w-screen-xl'>
