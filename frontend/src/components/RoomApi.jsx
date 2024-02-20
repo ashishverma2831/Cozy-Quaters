@@ -77,12 +77,12 @@ const RoomApi = () => {
                       alt={room.image} />
                     </div>
                     <div className="p-5">
-                      <Link >
+                      <div >
                         <h5 className="capitalize mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                           {room.roomname}
                         </h5>
                         <p className='font-semibold text-md mb-2 capitalize'><i className="fa-solid fa-location-dot"></i> {room.address} </p>
-                      </Link>
+                      </div>
                       <div className='bg-gray-300'>
                         <div className='p-2 flex border-b capitalize'><p className='w-1/2'>Accomodation for</p><p>{room.accomodation}</p></div>
                         <div className='p-2 flex border-b capitalize'><p className='w-1/2'>Suitable for</p><p>{room.suitable}</p></div>
