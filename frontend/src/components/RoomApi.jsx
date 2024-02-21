@@ -76,7 +76,7 @@ const RoomApi = () => {
                         src={'http://localhost:5000/uploads/'+room.image}
                       alt={room.image} />
                     </div>
-                    <div className="p-5 h-[340px]">
+                    <div className="p-5">
                       <div >
                         <h5 className="capitalize mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                           {room.roomname}

@@ -99,8 +99,7 @@ const AddRoom = () => {
                                 placeholder="Enter your name..."
                                 required="true"
                                 onChange={submitRoom.handleChange}
-                                // value={currentUser?currentUser.name:submitRoom.values.name}
-                                value={submitRoom.values.name}
+                                value={currentUser?currentUser.name:submitRoom.values.name}
                             />
                             <span className='text-sm text-red-600'>{submitRoom.touched.name && submitRoom.errors.name}</span>
                         </div>
@@ -119,8 +118,7 @@ const AddRoom = () => {
                                 placeholder="name@company.com"
                                 required="true"
                                 onChange={submitRoom.handleChange}
-                                // value={currentUser?currentUser.email:submitRoom.values.email}
-                                value={submitRoom.values.email}
+                                value={currentUser?currentUser.email:submitRoom.values.email}
                             />
                             <span className='text-sm text-red-600'>{submitRoom.touched.email && submitRoom.errors.email}</span>
                         </div>
