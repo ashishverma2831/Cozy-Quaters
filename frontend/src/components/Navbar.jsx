@@ -326,7 +326,6 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to='/'
-                      href="#"
                       className="flex items-center p-2 text-gray-900 hover:bg-gray-100"
                     >
                       <span className="ms-3">Home</span>
@@ -343,7 +342,6 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to='/about'
-                      href="#"
                       className="flex items-center p-2 text-gray-900  hover:bg-gray-100"
                     >
                       <span className="ms-3">About</span>
@@ -352,7 +350,6 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to='/feedback'
-                      href="#"
                       className="flex items-center p-2 text-gray-900  hover:bg-gray-100 "
                     >
                       <span className="ms-3">Feedback</span>
@@ -361,7 +358,6 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to='/contact'
-                      href="#"
                       className="flex items-center p-2 text-gray-900 hover:bg-gray-100"
                     >
                       <span className="ms-3">Contact Us</span>
