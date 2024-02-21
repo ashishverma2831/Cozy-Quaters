@@ -74,13 +74,15 @@ const Home = () => {
           <RoomApi />
         </div>
       </section>
-      <section className='my-10 mx-auto max-w-screen-xl'>
+      <section className='bg-gray-100'>
+      <div className='my-10 mx-auto max-w-screen-xl '>
         <div className='p-5'>
           <p className='text-center font-bold text-4xl'>Why Choose Cozy Quarters?</p>
         </div>
         <div className='py-10 flex justify-evenly flex-wrap gap-8'>
           <FeatureCard />
         </div>
+      </div>
       </section>
       <section className='my-10 mx-auto max-w-screen-xl flex flex-col gap-8 p-5'>
         <div className='p-5'>

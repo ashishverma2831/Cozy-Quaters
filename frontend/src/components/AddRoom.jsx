@@ -99,7 +99,8 @@ const AddRoom = () => {
                                 placeholder="Enter your name..."
                                 required="true"
                                 onChange={submitRoom.handleChange}
-                                value={currentUser?currentUser.name:submitRoom.values.name}
+                                // value={currentUser?currentUser.name:submitRoom.values.name}
+                                value={submitRoom.values.name}
                             />
                             <span className='text-sm text-red-600'>{submitRoom.touched.name && submitRoom.errors.name}</span>
                         </div>
@@ -118,7 +119,8 @@ const AddRoom = () => {
                                 placeholder="name@company.com"
                                 required="true"
                                 onChange={submitRoom.handleChange}
-                                value={currentUser?currentUser.email:submitRoom.values.email}
+                                // value={currentUser?currentUser.email:submitRoom.values.email}
+                                value={submitRoom.values.email}
                             />
                             <span className='text-sm text-red-600'>{submitRoom.touched.email && submitRoom.errors.email}</span>
                         </div>
@@ -196,7 +198,7 @@ const AddRoom = () => {
                                 type="number"
                                 name="amount"
                                 id="amount"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                                 placeholder="Enter your phone number..."
                                 required="true"
                                 onChange={submitRoom.handleChange}

@@ -29,7 +29,7 @@ const FeatureCard = () => {
         {
           features.map((feature)=>{
             return (
-              <div className='flex flex-col gap-3 w-[250px] shadow-lg rounded-lg py-5 px-4'>
+              <div className='flex flex-col gap-3 w-[250px] shadow-lg rounded-lg py-5 px-4 bg-white'>
             <div className='bg-[#065c77] shadow rounded-full my-2 h-28 mx-auto w-28 flex justify-center items-center'>
                 <img src={feature.image} className="fa-solid fa-calendar-days w-12 hover:scale-150 duration-500 hover:duration-500" />
             </div>
