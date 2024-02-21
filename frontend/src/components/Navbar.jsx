@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, NavLink, useParams } from 'react-router-dom'
 import useAppContext from '../AppContext'
+import '../App.css'
 
 const Navbar = () => {
 
@@ -11,22 +12,22 @@ const Navbar = () => {
       return (
         <div>
           <li>
-            <NavLink
+            <Link
               to='/login'
               href="#"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <span className="ms-3">Login</span>
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink
+            <Link
               to='/register'
               href="#"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <span className="ms-3">Register</span>
-            </NavLink>
+            </Link>
           </li>
         </div>
       )
@@ -93,20 +94,20 @@ const Navbar = () => {
               aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
             >
               <li>
-                <NavLink
+                <Link
                   to={'/update-profile/'+currentUser._id}
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   Update Profile
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink
+                <Link
                   to="/add-room"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   Add Your Own Room
-                </NavLink>
+                </Link>
               </li>
             </ul>
             <div className="py-2">
@@ -124,19 +125,19 @@ const Navbar = () => {
     }
     else {
       return <>
-        <NavLink
+        <Link
           to='/login'
           className="text-gray-900 focus:outline-none  font-medium  text-sm px-4 py-2 text-center border-gray-400"
         >
           Login
-        </NavLink>
+        </Link>
         <div className=' w-[1px] h-6 self-center bg-gray-600'></div>
-        <NavLink
+        <Link
           to='/register'
           className="text-gray-900 focus:outline-none font-medium text-sm px-4 py-2 text-center border-gray-400"
         >
           Register
-        </NavLink>
+        </Link>
       </>
     }
   }
@@ -197,9 +198,8 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to='/'
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded md:bg-transparent hover:bg-gray-100 "
-                  aria-current="page"
+                  className="block py-2 px-3 text-gray-900 "
+                  aria-current="page"   
                 >
                   Home
                 </NavLink>
@@ -255,7 +255,7 @@ const Navbar = () => {
                 </div> */}
                 <NavLink
                   to='/cities'
-                  className="block py-2 px-3 text-gray-900 rounded md:bg-transparent hover:bg-gray-100 "
+                  className="block py-2 px-3 text-gray-900  "
                   aria-current="page"
                 >
                   Cities
@@ -264,7 +264,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to='/about'
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100  "
+                  className="block py-2 px-3 text-gray-900"
                 >
                   About
                 </NavLink>
@@ -272,7 +272,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to='/feedback'
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 "
+                  className="block py-2 px-3 text-gray-900"
                 >
                   Feedback
                 </NavLink>
@@ -280,7 +280,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to='/contact'
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 "
+                  className="block py-2 px-3 text-gray-900"
                 >
                   Contact Us
                 </NavLink>
@@ -327,24 +327,24 @@ const Navbar = () => {
                     <NavLink
                       to='/'
                       href="#"
-                      className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                      className="flex items-center p-2 text-gray-900 hover:bg-gray-100"
                     >
                       <span className="ms-3">Home</span>
                     </NavLink>
                   </li>
                   <li>
-                    <Link
+                    <NavLink
                       to='/cities'
-                      className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                      className="flex items-center p-2 text-gray-900 hover:bg-gray-100 "
                     >
                       <span className="ms-3">Cities</span>
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
                     <NavLink
                       to='/about'
                       href="#"
-                      className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                      className="flex items-center p-2 text-gray-900  hover:bg-gray-100"
                     >
                       <span className="ms-3">About</span>
                     </NavLink>
@@ -353,7 +353,7 @@ const Navbar = () => {
                     <NavLink
                       to='/feedback'
                       href="#"
-                      className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                      className="flex items-center p-2 text-gray-900  hover:bg-gray-100 "
                     >
                       <span className="ms-3">Feedback</span>
                     </NavLink>
@@ -362,7 +362,7 @@ const Navbar = () => {
                     <NavLink
                       to='/contact'
                       href="#"
-                      className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                      className="flex items-center p-2 text-gray-900 hover:bg-gray-100"
                     >
                       <span className="ms-3">Contact Us</span>
                     </NavLink>

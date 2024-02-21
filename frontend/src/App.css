@@ -1,0 +1,7 @@
+.active{
+    color: #065c77;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid #065c77;
+}
+
+

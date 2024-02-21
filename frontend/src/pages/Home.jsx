@@ -5,7 +5,7 @@ import Hero from '../components/Hero'
 import Slider from '../components/Slider'
 import FeatureCard from '../components/FeatureCard'
 import rooms from '../components/roomData'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import FeedbackSlider from '../components/FeedbackSlider'
 import RoomApi from '../components/RoomApi'
 
