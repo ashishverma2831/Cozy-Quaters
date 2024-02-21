@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import useAppContext from '../AppContext'
 
 const Navbar = () => {
@@ -62,7 +62,7 @@ const Navbar = () => {
               src="/docs/images/people/profile-picture-3.jpg"
               alt="user photo"
             /> */}
-            {currentUser.name.toUpperCase()}
+            <span className='capitalize'>{currentUser.name}</span>
             <svg
               className="w-2.5 h-2.5 ms-3"
               aria-hidden="true"
