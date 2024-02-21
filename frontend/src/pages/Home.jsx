@@ -74,7 +74,7 @@ const Home = () => {
           <RoomApi />
         </div>
       </section>
-      <section className='bg-gray-50'>
+      <section className='bg-gray-50 py-2'>
       <div className='my-10 mx-auto max-w-screen-xl '>
         <div className='p-5'>
           <p className='text-center font-bold text-4xl'>Why Choose Cozy Quarters?</p>

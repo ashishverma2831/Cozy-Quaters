@@ -19,7 +19,7 @@ const FeedbackSlider = () => {
     return (
 
         <>
-            <section className='py-5 mb-5 mx-5'>
+            <section className='py-5 mb-5 mx-5 bg-gray-50'>
                 <p className="text-center font-bold text-4xl my-10 capitalize">What our clients says...?</p>
                 <div className="max-w-screen-lg mx-auto my-10 relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
