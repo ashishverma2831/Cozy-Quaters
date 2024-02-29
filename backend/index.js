@@ -6,7 +6,7 @@ require('dotenv').config();
 // Initialize express
 const app = express();
 const port = 5000;
-
+console.log(process.env.MONGO_DB_URI);
 // database connection
 // const url = 'mongodb+srv://root:root@cluster0.ve2kz8r.mongodb.net/cozyquarters?retryWrites=true&w=majority';
 mongoose.connect(process.env.MONGO_DB_URI || port)
