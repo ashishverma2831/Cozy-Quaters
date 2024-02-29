@@ -28,7 +28,9 @@ const utilRouter = require('./routers/util')
 // Middlewares
 app.use(express.json());
 app.use(cors({
-    origin:'http://localhost:5173'
+    // origin:'http://localhost:5173'
+    // origin:'https://cozy-quaters.onrender.com/'
+    origin:'https://cozy-quaters.vercel.app/'
 }));
 app.use('/user',UserRouter)
 app.use('/feedback',FeedbackRouter)
