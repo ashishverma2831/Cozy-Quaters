@@ -74,7 +74,8 @@ const RoomApi = () => {
                   <div className="mx-auto max-w-sm min-w-96 bg-white border border-gray-200 hover:scale-105 duration-500 hover:duration-500 rounded-lg shadow-lg ">
                     <div>
                       <img className="rounded-t-lg w-full h-[324px]" 
-                        src={'http://localhost:5000/uploads/'+room.image}
+                        // src={'http://localhost:5000/uploads/'+room.image}
+                        src={'https://cozy-quaters.onrender.com/uploads/'+room.image}
                       alt={room.image} />
                     </div>
                     <div className="p-5">
