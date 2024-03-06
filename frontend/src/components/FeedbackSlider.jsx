@@ -5,7 +5,8 @@ const FeedbackSlider = () => {
     const [feedbackList, setFeedbackList] = useState([]);
     const fetchFeedbacks = async ()=>{
         try {
-            const res = await fetch('http://localhost:5000/feedback/limited');
+            // const res = await fetch('http://localhost:5000/feedback/limited');
+            const res = await fetch('https://cozy-quaters.onrender.com/feedback/limited');
             const data = await res.json();
             setFeedbackList(data);
         } catch (error) {
