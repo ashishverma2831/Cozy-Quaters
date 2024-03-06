@@ -19,7 +19,8 @@ const RoomApi = () => {
     const [roomList, setRoomList] = useState([]);
     const fetchRooms = async ()=>{
         try {
-            const res = await fetch('http://localhost:5000/add-room/limited');
+            // const res = await fetch('http://localhost:5000/add-room/limited');
+            const res = await fetch('https://cozy-quaters.onrender.com/add-room/limited');
             const data = await res.json();
             setRoomList(data);
         } catch (error) {
