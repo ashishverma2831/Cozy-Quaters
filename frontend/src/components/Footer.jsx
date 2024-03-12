@@ -13,7 +13,7 @@ const Footer = () => {
               </div>
               <p className="text-sm pt-4 px-2">CozyQuaters.com - Is an online mutual support network for people working in Paying Guest/Hostels & Hotels? It's based in India in Service Sector, and with long experience in PAN INDIA lodging market it helps People to find the PG/Hostel that perfectly matches their needs.
               </p>
-              <NavLink to='/about' className='hover:cursor-pointer px-2 text-blue-700'>Read more...</NavLink>
+              <Link to='/about' className='hover:cursor-pointer px-2 text-blue-700'>Read more...</Link>
             </div>
             <div className='p-2 w-2/5 md:w-1/3'>
                 <p className='text-lg font-semibold pb-2 md:py-5'>Helpful Links</p>
