@@ -41,7 +41,7 @@ const AddRoom = () => {
             values.image = selFile; 
             console.log(values)
             setSubmitting(true);
-            const response = await fetch('http://localhost:5000/add-room/add', {
+            const response = await fetch('https://cozy-quaters.onrender.com/add-room/add', {
                 method: 'POST',
                 body: JSON.stringify(values),
                 headers: {
@@ -67,7 +67,7 @@ const AddRoom = () => {
         setSelFile(file.name);
         const fd = new FormData();
         fd.append("myfile", file);
-        fetch("http://localhost:5000/util/uploadfile", {
+        fetch("https://cozy-quaters.onrender.com/util/uploadfile", {
           method: "POST",
           body: fd,
         }).then((res) => {
