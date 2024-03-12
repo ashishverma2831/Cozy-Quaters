@@ -27,7 +27,7 @@ const UpdateProfile = () => {
 
     console.log(id);
     const getUserData = async ()=>{
-        const res = await fetch('http://localhost:5000/user/getbyid/'+id);
+        const res = await fetch('https://cozy-quaters.onrender.com/user/getbyid/'+id);
         console.log(res.status);
 
         const data = await res.json();
@@ -41,7 +41,7 @@ const UpdateProfile = () => {
 
     const submitForm = async (values)=>{
         console.log(values);
-        const res = await fetch('http://localhost:5000/user/update/'+id,{
+        const res = await fetch('https://cozy-quaters.onrender.com/user/update/'+id,{
             method:'PUT',
             headers:{
                 'Content-Type':'application/json'

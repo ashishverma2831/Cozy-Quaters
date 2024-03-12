@@ -28,7 +28,7 @@ const Feedback = () => {
     onSubmit:async (values,{setSubmitting,resetForm})=>{
       console.log(values);
       setSubmitting(true);
-      const res = await fetch('http://localhost:5000/feedback/add',{
+      const res = await fetch('https://cozy-quaters.onrender.com/feedback/add',{
         method:'POST',
         body:JSON.stringify(values),
         headers:{

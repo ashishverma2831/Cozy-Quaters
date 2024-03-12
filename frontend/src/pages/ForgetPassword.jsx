@@ -14,7 +14,7 @@ const ForgetPassword = () => {
     },
     onSubmit: async(values)=>{
       console.log(values);
-      const res = await fetch('http://localhost:5000/user/forget-password',{
+      const res = await fetch('https://cozy-quaters.onrender.com/user/forget-password',{
         method:'POST',
         body:JSON.stringify(values),
         headers:{

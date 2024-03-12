@@ -25,7 +25,7 @@ const ResetPassword = () => {
         },
         onSubmit: async (values) => {
             console.log(values);
-            const res = await fetch('http://localhost:5000/user/reset-password/'+id, {
+            const res = await fetch('https://cozy-quaters.onrender.com/user/reset-password/'+id, {
                 method: 'PUT',
                 body: JSON.stringify(values),
                 headers: {

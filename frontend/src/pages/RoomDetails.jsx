@@ -46,7 +46,7 @@ const RoomDetails = () => {
     onSubmit: async (values,{setSubmitting,resetForm}) => {
       console.log(values)
       setSubmitting(true);
-      const res = await fetch('http://localhost:5000/cities/:city/:id/add', {
+      const res = await fetch('https://cozy-quaters.onrender.com/cities/:city/:id/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
