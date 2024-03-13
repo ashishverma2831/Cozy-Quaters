@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Contact = require('../models/contactModel')
 
-router.post('/add',(req,res)=>{
+router.post('/add',async (req,res)=>{
     console.log(req.body);
     const {name,subject,message} = req.body
-    new Contact(req.body).save()
+    await new Contact(req.body).save()
     .then((result) => {
         res.json(result)
     }).catch((err) => {
@@ -14,9 +14,9 @@ router.post('/add',(req,res)=>{
     });
 })
 
-router.delete('/delete/:id',(req,res)=>{
+router.delete('/delete/:id',async (req,res)=>{
     console.log(req.params.id);
-    Contact.findByIdAndDelete(req.params.id)
+    await Contact.findByIdAndDelete(req.params.id)
     .then((result) => {
         res.json(result);
     }).catch((err) => {
@@ -25,8 +25,8 @@ router.delete('/delete/:id',(req,res)=>{
     });
 })
 
-router.get('/all',(req,res)=>{
-    Contact.find()
+router.get('/all',async (req,res)=>{
+    await Contact.find()
     .then((result) => {
         res.json(result);
     }).catch((err) => {

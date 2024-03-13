@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const AddRoom = require('../models/addRoomModel.js')
 
-router.post('/add',(req,res)=>{
+router.post('/add',async (req,res)=>{
     console.log(req.body);
     const {name,email,number,accomodation,suitable,amount,roomname,image,description,address} = req.body
-    new AddRoom(req.body).save()
+    await new AddRoom(req.body).save()
     .then((result) => {
         res.json(result)
     }).catch((err) => {
@@ -14,9 +14,9 @@ router.post('/add',(req,res)=>{
     });
 })
 
-router.delete('/delete/:id',(req,res)=>{
+router.delete('/delete/:id',async (req,res)=>{
     console.log(req.params.id);
-    AddRoom.findByIdAndDelete(req.params.id)
+    await AddRoom.findByIdAndDelete(req.params.id)
     .then((result) => {
         res.json(result);
     }).catch((err) => {
@@ -25,8 +25,8 @@ router.delete('/delete/:id',(req,res)=>{
     });
 })
 
-router.get('/all',(req,res)=>{
-    AddRoom.find()
+router.get('/all',async (req,res)=>{
+    await AddRoom.find()
     .then((result) => {
         res.json(result);
     }).catch((err) => {
@@ -35,8 +35,8 @@ router.get('/all',(req,res)=>{
     });
 })
 
-router.get('/limited',(req,res)=>{
-    AddRoom.find().limit(10).sort({createdAt:-1})
+router.get('/limited',async (req,res)=>{
+    await AddRoom.find().limit(10).sort({createdAt:-1})
     .then((result) => {
         res.json(result);
     }).catch((err) => {

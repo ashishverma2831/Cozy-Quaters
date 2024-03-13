@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Feedback = require('../models/feedbackModel')
 
-router.post('/add',(req,res)=>{
+router.post('/add',async (req,res)=>{
     console.log(req.body);
     const {name,email,rating,message} = req.body
-    new Feedback(req.body).save()
+    await new Feedback(req.body).save()
     .then((result) => {
         res.json(result)
     }).catch((err) => {
@@ -14,9 +14,9 @@ router.post('/add',(req,res)=>{
     });
 })
 
-router.delete('/delete/:id',(req,res)=>{
+router.delete('/delete/:id',async (req,res)=>{
     console.log(req.params.id);
-    Feedback.findByIdAndDelete(req.params.id)
+    await Feedback.findByIdAndDelete(req.params.id)
     .then((result) => {
         res.json(result);
     }).catch((err) => {
@@ -25,8 +25,8 @@ router.delete('/delete/:id',(req,res)=>{
     });
 })
 
-router.get('/all',(req,res)=>{
-    Feedback.find()
+router.get('/all',async (req,res)=>{
+    await Feedback.find()
     .then((result) => {
         res.json(result);
     }).catch((err) => {
@@ -57,8 +57,8 @@ router.get('/all',(req,res)=>{
 // })
 
 // limited feedbacks
-router.get('/limited',(req,res)=>{
-    Feedback.find().limit(5).sort({createdAt:-1})
+router.get('/limited',async (req,res)=>{
+    await Feedback.find().limit(5).sort({createdAt:-1})
     .then((result) => {
         res.json(result);
     }).catch((err) => {
