@@ -65,7 +65,7 @@ const Home = () => {
       }
     
       </section>
-      <section className='my-10  max-w-screen-xl mx-auto'>
+      <section className='my-10 max-w-screen-xl mx-auto'>
         <div className='p-5'>
           <p className='text-center font-bold text-4xl'>Newly added Rooms</p>
         </div>

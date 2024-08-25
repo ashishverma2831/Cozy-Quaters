@@ -30,7 +30,7 @@ const RoomApi = () => {
     console.log(roomList);
     useEffect(()=>{
         fetchRooms();
-    },[])
+    },[ ])
 
   return (
     <>

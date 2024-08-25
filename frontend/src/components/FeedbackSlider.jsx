@@ -39,9 +39,9 @@ const FeedbackSlider = () => {
                         </thead>
                         <tbody>
                             {
-                                feedbackList.map((feedback) => {
+                                feedbackList.map((feedback,index) => {
                                     return (
-                                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 hover:scale-y-105 overflow-hidden hover:shadow-lg ">
+                                        <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 hover:scale-y-105 overflow-hidden hover:shadow-lg ">
                                             <td className="px-6 py-4 text-center capitalize">{feedback.name}</td>
                                             <td className="px-6 py-4 text-center">
                                             {
