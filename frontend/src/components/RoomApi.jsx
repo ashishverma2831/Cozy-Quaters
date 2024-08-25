@@ -67,7 +67,7 @@ const RoomApi = () => {
         className="max-w-screen-xl mx-auto flex justify-center"
       >
         {
-          roomList.map((room,index) => {
+           roomList.map((room,index) => {
             return (
               <SwiperSlide key={index}>
                 <div className='my-4' key={room._id} >
