@@ -30,9 +30,8 @@ app.use(express.json());
 app.use(cors({
     // origin:'http://localhost:5173'
     // origin:'https://cozy-quaters.onrender.com/'
-    origin:'https://cozy-quaters.vercel.app',
-    // allowedHeaders:'*',
-    AccessControlAllowOrigin:'*',
+    // origin:'https://cozy-quaters.vercel.app',
+    origin:'*',
     // origin:'https://cozy-quaters-1.onrender.com'
 }));
 app.use('/user',UserRouter)
